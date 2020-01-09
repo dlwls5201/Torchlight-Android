@@ -14,15 +14,23 @@
     <string name="common_prev">Previous</string>
     <string name="common_expand">Expand</string>
     <string name="common_collapse">Collapse</string>
-
-    <!-- Common main nav -->
-    <string name="common_home">home</string>
-    <string name="common_my_project">my project</string>
-    <string name="common_notification">notice</string>
-    <string name="common_my_page">my page</string>
+    <string name="common_home">홈</string>
+    <string name="common_my_project">내 프로젝트</string>
+    <string name="common_notification">알림</string>
+    <string name="common_my_page">마이페이</string>
 
     <!-- Home -->
-    <string name="home_search_interested_project">Search interested project</string>
+    <string name="home_search_interested_project">관심있는 프로젝트를 검색해보세요</string>
+
+    <!-- My Project -->
+    <string name="my_project">내 프로젝트</string>
+    <string name="my_project_made">만든 프로젝트</string>
+    <string name="my_project_participating">참여 프로젝트</string>
+    <string name="my_project_liked">찜한 프로젝트</string>
+
+    <!-- Notifications -->
+    <string name="notifications_empty_title">torchlight</string>
+    <string name="notifications_empty_description">아직 알림이\n없네요.</string>
 
     <!-- Start -->
     <string name="start_title">For you\nwho want to build up\n<b>a project that makes heart-beats</b>.</string>
