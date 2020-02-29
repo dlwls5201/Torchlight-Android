@@ -11,6 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.*
+import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.flexbox.FlexDirection
@@ -119,5 +120,12 @@ class ItemSelectorView: RecyclerView {
     @Deprecated("LayoutManager is handled in the view itself!", ReplaceWith("nothing"), DeprecationLevel.HIDDEN)
     override fun setLayoutManager(layout: LayoutManager?) {
         throw UnsupportedOperationException("LayoutManager is handled in ItemSelectorView itself!")
+    }
+
+    companion object {
+        @BindingAdapter("list")
+        @JvmStatic
+        fun setList(view: ItemSelectorView, data: List<ItemSelectorData>) =
+            view.itemSelectorAdapter.setItemList(data)
     }
 }
