@@ -1,50 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<merge xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:layout_height="wrap_content"
-    tools:layout_width="match_parent"
-    tools:orientation="vertical"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background"
     tools:parentTag="android.widget.LinearLayout">
 
     <RadioGroup
         android:id="@+id/rg"
         android:layout_width="match_parent"
         android:layout_height="36dp"
+        android:background="@drawable/item_card_background"
+        android:backgroundTint="@color/button_background"
         android:orientation="horizontal"
-        android:background="@color/gray"
-        android:padding="1dp"
         android:weightSum="3">
 
         <RadioButton
             android:layout_weight="1"
             android:id="@+id/rb1"
-            android:layout_marginEnd="1dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
-            android:background="@color/white"
+            android:background="@drawable/item_card_background"
             android:button="@null"
             android:gravity="center"
-            android:includeFontPadding="false"
-            android:text="1"
-            android:textColor="@color/right_gray"
-            android:textSize="13sp" />
+            style="@style/SmallSingleLine"
+            android:text="1" />
 
         <RadioButton
             android:layout_weight="1"
-            android:layout_marginEnd="1dp"
             android:id="@+id/rb2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
-            android:background="@color/white"
+            android:background="@drawable/item_card_background"
             android:button="@null"
             android:gravity="center"
-            android:includeFontPadding="false"
             android:text="2"
-            android:textColor="@color/right_gray"
-            android:textSize="13sp" />
+            style="@style/SmallSingleLine"
+    />
 
         <RadioButton
             android:layout_weight="1"
@@ -52,14 +48,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
-            android:background="@color/white"
+            android:background="@drawable/item_card_background"
             android:button="@null"
+            style="@style/SmallSingleLine"
+
             android:gravity="center"
-            android:includeFontPadding="false"
-            android:text="3"
-            android:textColor="@color/right_gray"
-            android:textSize="13sp" />
+            android:text="3단계"
+       />
 
     </RadioGroup>
 
-</merge>
+</LinearLayout>

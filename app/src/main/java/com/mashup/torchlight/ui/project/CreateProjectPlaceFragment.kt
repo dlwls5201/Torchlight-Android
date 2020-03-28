@@ -4,10 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import com.mashup.torchlight.R
+import com.mashup.torchlight.databinding.FragmentCreateProjectPlaceBinding
 
-class CreateProjectPlaceFragment : Fragment() {
+class CreateProjectPlaceFragment :
+    ProjectBaseFragment<FragmentCreateProjectPlaceBinding>(R.layout.fragment_create_project_place) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,15 +19,16 @@ class CreateProjectPlaceFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_create_project_place, container, false)
+        return super.onCreateView(inflater, container, savedInstanceState)
     }
 
-
-    companion object {
+   /* companion object {
         @JvmStatic
-        fun newInstance() =
-            CreateProjectPlaceFragment().apply {
-            }
-    }
+        fun newInstance(movePageListener: CreateProjectActivity.IMovePageListener):
+                CreateProjectPlaceFragment {
+            val fragment = CreateProjectPlaceFragment()
+            fragment.movePage = movePageListener
+            return fragment
+        }
+    }*/
 }

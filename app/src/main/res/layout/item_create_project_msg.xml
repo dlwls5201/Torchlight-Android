@@ -1,43 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="subtitle"
+            type="String" />
+        <variable
+            name="explicate"
+            type="String" />
+
+    </data>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="3">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <TextView
+                style="@style/TitleSingleLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{subtitle}"
+                tools:text=" 설정해주세요" />
+
+        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
+            android:layout_marginTop="16dp"
             android:letterSpacing="-0.02"
-            android:textColor="#000000"
-            android:textSize="17sp"
-            tools:text="열정을 설정해주세요" />
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="end"
-            android:letterSpacing="-0.02"
-            android:textColor="#000000"
-            android:textSize="17sp"
-            tools:text="1/6" />
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="11dp"
-        android:letterSpacing="-0.02"
-        android:textColor="#000000"
-        android:textSize="14sp"
-        tools:text="열정은 어쩌구저쩌구 도움말 텍스트에요. 아마 이 정도 길이면 되지 않을까 싶은데… 나중에 바뀔 수도 있어요." />
+            android:textColor="@color/text_secondary"
+            android:textSize="16sp"
+            android:text="@{explicate}"
+            tools:text="열정은 어쩌구저쩌구 도움말 텍스트에요. 아마 이 정도 길이면 되지 않을까 싶은데… 나중에 바뀔 수도 있어요."
+            />
 </LinearLayout>
+</layout>

@@ -27,7 +27,6 @@ class CreateProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_profile)
         viewModel = ViewModelProviders.of(this).get(ProfileViewModel::class.java)
-
         signUpAdapter = CreateProfileFragmentAdapter(supportFragmentManager, lifecycle, movePageListener)
         vpCreateProfile.adapter = signUpAdapter
         vpCreateProfile.isUserInputEnabled = false

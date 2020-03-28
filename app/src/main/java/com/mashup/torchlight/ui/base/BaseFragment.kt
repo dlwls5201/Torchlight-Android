@@ -19,7 +19,6 @@ abstract class BaseFragment<B : ViewDataBinding>(private val layoutId: Int) : Fr
     ): View? {
         binding = DataBindingUtil.inflate(inflater, layoutId, container, false)
         binding.lifecycleOwner = this
-        
         return binding.root
     }
 }

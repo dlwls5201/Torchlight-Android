@@ -12,6 +12,10 @@
         <attr name="deselected_color" format="color" />
         <attr name="selected_text_color" format="color" />
         <attr name="deselected_text_color" format="color" />
+        <attr name="selected_bottom_text_color" format="color" />
+        <attr name="deselected_bottom_text_color" format="color" />
+        <attr name="selected_icon_color" format="color" />
+        <attr name="deselected_icon_color" format="color" />
         <attr name="border_color" format="color" />
         <attr name="border_thickness" format="integer" />
         <attr name="remove_btn_bg_color" format="color" />
@@ -22,6 +26,7 @@
         <attr name="remove_btn_border_thickness" format="color" />
         <attr name="radius" format="dimension" />
         <attr name="text_size" format="dimension" />
+        <attr name="icon_size" format="dimension" />
         <attr name="max_select_count" format="integer" />
         <attr name="item_margin" format="dimension" />
         <attr name="item_padding" format="dimension" />

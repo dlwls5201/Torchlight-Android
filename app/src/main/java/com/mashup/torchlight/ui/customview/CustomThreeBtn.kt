@@ -1,4 +1,4 @@
-package com.mashup.torchlight.ui.project
+package com.mashup.torchlight.ui.customview
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -100,11 +100,11 @@ class CustomThreeBtn : LinearLayout {
     @SuppressLint("ResourceAsColor")
     fun setCheckId(checkId: Int) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            rb1.background.setTint(context.resources.getColor(R.color.white))
+            rb1.background.setTint(context.resources.getColor(R.color.button_background))
             rb1.setTextColor(Color.GRAY)
-            rb2.background.setTint(context.resources.getColor(R.color.white))
+            rb2.background.setTint(context.resources.getColor(R.color.button_background))
             rb2.setTextColor(Color.GRAY)
-            rb3.background.setTint(context.resources.getColor(R.color.white))
+            rb3.background.setTint(context.resources.getColor(R.color.button_background))
             rb3.setTextColor(Color.GRAY)
         }
         this.checkId = checkId
@@ -115,8 +115,8 @@ class CustomThreeBtn : LinearLayout {
             2 -> rb = rb3
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            rb.background.setTint(context.resources.getColor(R.color.gray))
-            rb.setTextColor(Color.WHITE)
+            rb.background.setTint(context.resources.getColor(R.color.main_400))
+            rb.setTextColor(Color.BLACK)
         }
     }
 

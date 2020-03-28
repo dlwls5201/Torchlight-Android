@@ -1,14 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.project.CreateProjectPlatformFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="projectVM"
+            type="com.mashup.torchlight.viewmodel.ProjectViewModel" />
+    </data>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical"
+        android:layout_margin="@dimen/create_project_start_margin">
 
-</FrameLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/create_project_start_margin"
+            android:letterSpacing="-0.02"
+            android:lineSpacingExtra="3sp"
+            android:text="@string/project_platform"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp" />
+
+        <com.mashup.torchlight.ui.customview.itemselectorview.ItemSelectorView
+            android:id="@+id/selector_project_platform"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/create_project_start_margin"
+            app:border_color="@android:color/transparent"
+            app:deselected_bottom_text_color="@color/text_secondary"
+            app:deselected_color="@color/editText_bg"
+            app:deselected_icon_color="@color/text_secondary"
+            app:display_type="icon"
+            app:item_margin="12dp"
+            app:icon_size="28dp"
+            app:item_padding="14dp"
+            app:multi_selectable="true"
+            app:radius="28dp"
+            app:removable="false"
+            app:scrollable="false"
+            app:selected_bottom_text_color="@color/main_400"
+            app:selected_color="@color/main_400"
+            app:selected_icon_color="@color/background"
+            app:selected_text_color="@color/text_button" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:letterSpacing="-0.02"
+            android:lineSpacingExtra="3sp"
+            android:text="@string/desktop"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp" />
+
+        <com.mashup.torchlight.ui.customview.itemselectorview.ItemSelectorView
+            android:id="@+id/selector_project_desktop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/create_project_start_margin"
+            app:border_color="@android:color/transparent"
+            app:deselected_bottom_text_color="@color/text_secondary"
+            app:deselected_color="@color/editText_bg"
+            app:deselected_icon_color="@color/text_secondary"
+            app:display_type="icon"
+            app:item_margin="12dp"
+            app:icon_size="28dp"
+            app:item_padding="14dp"
+            app:multi_selectable="true"
+            app:radius="28dp"
+            app:removable="false"
+            app:scrollable="false"
+            app:selected_bottom_text_color="@color/main_400"
+            app:selected_color="@color/main_400"
+            app:selected_icon_color="@color/background"
+            app:selected_text_color="@color/text_button" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:letterSpacing="-0.02"
+            android:lineSpacingExtra="3sp"
+            android:text="@string/project_field"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp" />
+
+        <com.mashup.torchlight.ui.customview.itemselectorview.ItemSelectorView
+            android:id="@+id/selector_project_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/create_project_start_margin"
+            app:border_color="@android:color/transparent"
+            app:deselected_bottom_text_color="@color/text_secondary"
+            app:deselected_color="@color/editText_bg"
+            app:deselected_icon_color="@color/text_secondary"
+            app:display_type="icon"
+            app:item_margin="12dp"
+            app:icon_size="28dp"
+            app:item_padding="14dp"
+            app:multi_selectable="true"
+            app:radius="28dp"
+            app:removable="false"
+            app:scrollable="false"
+            app:selected_bottom_text_color="@color/main_400"
+            app:selected_color="@color/main_400"
+            app:selected_icon_color="@color/background"
+            app:selected_text_color="@color/text_button" />
+    </LinearLayout>
+</layout>

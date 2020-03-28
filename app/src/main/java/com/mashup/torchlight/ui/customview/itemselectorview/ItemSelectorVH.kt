@@ -18,22 +18,33 @@ class ItemSelectorVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
              onItemClicked: (id: Int) -> Unit,
              onRemoveClicked: (id: Int) -> Unit) {
         val tv = itemView.txt
+        val tvBottom = itemView.txtBottom
         val img = itemView.img
         val remove = itemView.remove
         val wrapper = itemView.wrapper
+        val wrapperTv = itemView.wrapperTv
 
         // Data set
         tv.text = data.name
+        tvBottom.text = data.name
         img.setImageDrawable(data.image)
 
         //Visibility. 1: TextOnly, 2: IconOnly, 3: Text+Icon
         tv.visibility = if (style.displayType and 1 > 0) View.VISIBLE else View.GONE
+        tvBottom.visibility = if (style.displayType and 2 > 0) View.VISIBLE else View.GONE
         img.visibility = if (style.displayType and 2 > 0) View.VISIBLE else View.GONE
         remove.visibility = if (style.isRemovable) View.VISIBLE else View.GONE
 
         // Text
         tv.setTextColor(if (data.isSelected) style.selectedTextColor else style.deselectedTextColor)
-        tv.setTextSize(TypedValue.COMPLEX_UNIT_PX, style.textSize.toFloat());
+        tv.setTextSize(TypedValue.COMPLEX_UNIT_PX, style.textSize.toFloat())
+        tvBottom.setTextColor(if (data.isSelected) style.selectedBottomTextColor else style.deselectedBottomTextColor)
+
+        // Icon
+        img.setColorFilter(if (data.isSelected) style.selectedIconColor else style.deselectedIconColor)
+        img.layoutParams.width= style.iconSize
+
+
 
         // BG
         bgShape.setColor(if (data.isSelected) style.selectedColor else style.deselectedColor)
@@ -52,9 +63,9 @@ class ItemSelectorVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
         remove.textSize = style.removeBtnSize * 0.3f
 
         // Layout Param
-        val paramsWrapper = wrapper.layoutParams as ViewGroup.MarginLayoutParams
+        val paramsWrapper = wrapperTv.layoutParams as ViewGroup.MarginLayoutParams
         paramsWrapper.setMargins(style.itemMargin)
-        wrapper.layoutParams = paramsWrapper
+        wrapperTv.layoutParams = paramsWrapper
         wrapper.setPadding(style.itemPadding)
         wrapper.gravity = Gravity.CENTER_VERTICAL
 

@@ -1,14 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.project.CreateProjectPassionFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="projectVM"
+            type="com.mashup.torchlight.viewmodel.ProjectViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:background="@color/background">
 
-</FrameLayout>
+        <com.mashup.torchlight.ui.customview.CustomThreeBtn
+            android:id="@+id/btnSelectThree"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="@dimen/create_project_start_margin"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="@dimen/create_project_start_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/tvPassion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/create_project_start_margin"
+            android:gravity="center_horizontal"
+            android:letterSpacing="-0.02"
+            android:lineSpacingExtra="5sp"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnSelectThree"
+            tools:text="사이드 프로젝트를 한 번 경험해보고 싶어요." />
+
+        <ImageView
+            android:id="@+id/ivPassion"
+            android:layout_width="0dp"
+            android:layout_height="220dp"
+            android:layout_marginTop="24dp"
+            android:src="@{projectVM.getStageImage().image}"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvPassion" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
