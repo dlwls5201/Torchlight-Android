@@ -7,10 +7,10 @@ import android.view.ViewGroup
 
 import com.mashup.torchlight.R
 import com.mashup.torchlight.databinding.FragmentSignUpEmailInputBinding
+import com.mashup.torchlight.ext.toast
 import kotlinx.android.synthetic.main.fragment_sign_up_email_input.*
-import org.jetbrains.anko.support.v4.toast
 
-class SignUpEmailInputFragment()
+class SignUpEmailInputFragment
     : SignUpBaseFragment<FragmentSignUpEmailInputBinding>(R.layout.fragment_sign_up_email_input) {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -20,7 +20,7 @@ class SignUpEmailInputFragment()
             if (viewModel.isValidEmail()) {
                 viewModel.chkDuplicatedAndUpdateAuthBtn()
             } else {
-                toast(getString(R.string.signup_email_is_invalid))
+                requireContext().toast(getString(R.string.signup_email_is_invalid))
             }
         }
         btnSendAuthCode.setOnClickListener { movePage.moveNextPage() }

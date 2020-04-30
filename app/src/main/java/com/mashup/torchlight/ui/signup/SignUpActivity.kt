@@ -5,8 +5,8 @@ import androidx.lifecycle.ViewModelProviders
 import com.mashup.torchlight.R
 import com.mashup.torchlight.adapter.SignUpFragmentAdapter
 import com.mashup.torchlight.adapter.SignUpFragmentAdapter.Companion.PagePos.*
+import com.mashup.torchlight.base.BaseActivity
 import com.mashup.torchlight.databinding.ActivitySignUpBinding
-import com.mashup.torchlight.ui.base.BaseActivity
 import com.mashup.torchlight.viewmodel.SignUpViewModel
 import kotlinx.android.synthetic.main.activity_sign_up.*
 

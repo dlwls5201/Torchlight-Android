@@ -4,15 +4,15 @@ import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import com.mashup.torchlight.BR
+import androidx.databinding.library.baseAdapters.BR
 import com.mashup.torchlight.R
-import com.mashup.torchlight.adapter.BaseRecyclerViewAdapter
+import com.mashup.torchlight.base.BaseFragment
 import com.mashup.torchlight.databinding.FragmentHomeBinding
 import com.mashup.torchlight.databinding.ItemProjectBinding
+import com.mashup.torchlight.ext.toast
 import com.mashup.torchlight.model.ProjectModel
-import com.mashup.torchlight.ui.base.BaseFragment
+import com.mashup.torchlight.simplerecyclerview.SimpleRecyclerViewAdapter
 import kotlinx.android.synthetic.main.fragment_home.*
-import org.jetbrains.anko.support.v4.toast
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
@@ -27,7 +27,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     private fun initButton() {
 
         btnFragmentHomeSearch.setOnClickListener {
-            toast("검색 화면 이동")
+            requireContext().toast("검색 화면 이동")
         }
     }
 
@@ -82,49 +82,49 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     }
 
     private fun setUpRecycleView() {
+        val tempAdapter = object : SimpleRecyclerViewAdapter<ProjectModel, ItemProjectBinding>(
+            layoutRes = R.layout.item_project,
+            bindingVariableId = BR.itemProject
+        ) {}
+
         with(binding.rvFragmentHomeProject) {
-            adapter = object : BaseRecyclerViewAdapter<ProjectModel, ItemProjectBinding>(
-                layoutRes = R.layout.item_project,
-                bindingVariableId = BR.itemProject
-            ) {}
-
-            val items = mutableListOf(
-                ProjectModel(
-                    name = "name1",
-                    description = "description",
-                    recruitmentCnt = 10,
-                    tag = listOf()
-                ),
-                ProjectModel(
-                    name = "name2",
-                    description = "description",
-                    recruitmentCnt = 10,
-                    tag = listOf()
-                ),
-                ProjectModel(
-                    name = "name3",
-                    description = "description",
-                    recruitmentCnt = 10,
-                    tag = listOf()
-                ),
-                ProjectModel(
-                    name = "name4",
-                    description = "description",
-                    recruitmentCnt = 10,
-                    tag = listOf()
-                ),
-                ProjectModel(
-                    name = "name5",
-                    description = "description",
-                    recruitmentCnt = 10,
-                    tag = listOf()
-                )
-            )
-
-            (adapter as BaseRecyclerViewAdapter<Any, *>).run {
-                replaceAll(items)
-            }
+            adapter = tempAdapter
         }
+
+        val items = mutableListOf(
+            ProjectModel(
+                name = "name1",
+                description = "description",
+                recruitmentCnt = 10,
+                tag = listOf()
+            ),
+            ProjectModel(
+                name = "name2",
+                description = "description",
+                recruitmentCnt = 10,
+                tag = listOf()
+            ),
+            ProjectModel(
+                name = "name3",
+                description = "description",
+                recruitmentCnt = 10,
+                tag = listOf()
+            ),
+            ProjectModel(
+                name = "name4",
+                description = "description",
+                recruitmentCnt = 10,
+                tag = listOf()
+            ),
+            ProjectModel(
+                name = "name5",
+                description = "description",
+                recruitmentCnt = 10,
+                tag = listOf()
+            )
+        )
+
+        tempAdapter.replaceAll(items)
     }
 
     companion object {

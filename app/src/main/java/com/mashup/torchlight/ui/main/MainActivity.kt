@@ -5,8 +5,8 @@ import android.view.MenuItem
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.mashup.torchlight.R
 import com.mashup.torchlight.adapter.MainFragmentAdapter
+import com.mashup.torchlight.base.BaseActivity
 import com.mashup.torchlight.databinding.ActivityMainBinding
-import com.mashup.torchlight.ui.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

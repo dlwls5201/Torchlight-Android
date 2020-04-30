@@ -2,10 +2,11 @@ package com.mashup.torchlight.viewmodel
 
 import android.util.Patterns
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import com.mashup.torchlight.model.SignUpModel
 import com.mashup.torchlight.work.SignUpWork
 
-class SignUpViewModel : BaseViewModel() {
+class SignUpViewModel : ViewModel() {
     val data = MutableLiveData<SignUpModel>()
     val sendAuthBtnEnabled = MutableLiveData<Boolean>()
 

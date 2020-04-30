@@ -2,8 +2,8 @@ package com.mashup.torchlight.ui.myproject
 
 import android.os.Bundle
 import com.mashup.torchlight.R
+import com.mashup.torchlight.base.BaseFragment
 import com.mashup.torchlight.databinding.FragmentMyProjectBinding
-import com.mashup.torchlight.ui.base.BaseFragment
 
 class MyProjectFragment : BaseFragment<FragmentMyProjectBinding>(R.layout.fragment_my_project) {
 
