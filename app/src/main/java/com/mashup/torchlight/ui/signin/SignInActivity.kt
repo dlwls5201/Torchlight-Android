@@ -1,16 +1,16 @@
 package com.mashup.torchlight.ui.signin
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProviders
-import com.mashup.torchlight.R
 import com.mashup.torchlight.BR
+import com.mashup.torchlight.R
+import com.mashup.torchlight.base.BaseActivity
 import com.mashup.torchlight.databinding.ActivitySignInBinding
-import com.mashup.torchlight.ui.base.BaseActivity
+import com.mashup.torchlight.ext.toast
 import com.mashup.torchlight.ui.signup.SignUpActivity
 import com.mashup.torchlight.viewmodel.SignInViewModel
 import kotlinx.android.synthetic.main.activity_sign_in.*
-import org.jetbrains.anko.startActivity
-import org.jetbrains.anko.toast
 
 class SignInActivity : BaseActivity<ActivitySignInBinding>(R.layout.activity_sign_in) {
 
@@ -37,7 +37,7 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>(R.layout.activity_sig
         }
 
         tvSignUp.setOnClickListener {
-            startActivity<SignUpActivity>()
+            startActivity(Intent(this, SignUpActivity::class.java))
         }
 
         tvFindPw.setOnClickListener {

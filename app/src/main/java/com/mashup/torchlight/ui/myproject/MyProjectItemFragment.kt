@@ -2,11 +2,11 @@ package com.mashup.torchlight.ui.myproject
 
 import android.os.Bundle
 import com.mashup.torchlight.R
-import com.mashup.torchlight.adapter.BaseRecyclerViewAdapter
+import com.mashup.torchlight.base.BaseFragment
 import com.mashup.torchlight.databinding.FragmentMyProjectItemBinding
 import com.mashup.torchlight.databinding.ItemProjectBinding
 import com.mashup.torchlight.model.ProjectModel
-import com.mashup.torchlight.ui.base.BaseFragment
+import com.mashup.torchlight.simplerecyclerview.SimpleRecyclerViewAdapter
 
 class MyProjectItemFragment :
     BaseFragment<FragmentMyProjectItemBinding>(R.layout.fragment_my_project_item) {
@@ -19,7 +19,7 @@ class MyProjectItemFragment :
 
     private fun setUpRecycleView() {
         with(binding.rvFragmentMyProject) {
-            adapter = object : BaseRecyclerViewAdapter<ProjectModel, ItemProjectBinding>(
+            adapter = object : SimpleRecyclerViewAdapter<ProjectModel, ItemProjectBinding>(
                 layoutRes = R.layout.item_project,
                 bindingVariableId = com.mashup.torchlight.BR.itemProject
             ) {}
@@ -57,7 +57,7 @@ class MyProjectItemFragment :
                 )
             )
 
-            (adapter as BaseRecyclerViewAdapter<Any, *>).run {
+            (adapter as SimpleRecyclerViewAdapter<Any, *>).run {
                 replaceAll(items)
             }
         }

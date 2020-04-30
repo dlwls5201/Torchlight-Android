@@ -5,8 +5,8 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.mashup.torchlight.R
 import com.mashup.torchlight.adapter.MyProjectFragmentAdapter
+import com.mashup.torchlight.base.BaseFragment
 import com.mashup.torchlight.databinding.FragmentMyProjectBindingImpl
-import com.mashup.torchlight.ui.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_my_project.*
 
 class MyProjectFragment : BaseFragment<FragmentMyProjectBindingImpl>(R.layout.fragment_my_project) {

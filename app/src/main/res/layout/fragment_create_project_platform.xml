@@ -14,8 +14,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_margin="@dimen/create_project_start_margin">
+        android:layout_margin="@dimen/create_project_start_margin"
+        android:orientation="vertical">
 
 
         <TextView
@@ -38,8 +38,8 @@
             app:deselected_color="@color/editText_bg"
             app:deselected_icon_color="@color/text_secondary"
             app:display_type="icon"
-            app:item_margin="12dp"
             app:icon_size="28dp"
+            app:item_margin="12dp"
             app:item_padding="14dp"
             app:multi_selectable="true"
             app:radius="28dp"
@@ -70,8 +70,8 @@
             app:deselected_color="@color/editText_bg"
             app:deselected_icon_color="@color/text_secondary"
             app:display_type="icon"
-            app:item_margin="12dp"
             app:icon_size="28dp"
+            app:item_margin="12dp"
             app:item_padding="14dp"
             app:multi_selectable="true"
             app:radius="28dp"
@@ -102,8 +102,8 @@
             app:deselected_color="@color/editText_bg"
             app:deselected_icon_color="@color/text_secondary"
             app:display_type="icon"
-            app:item_margin="12dp"
             app:icon_size="28dp"
+            app:item_margin="12dp"
             app:item_padding="14dp"
             app:multi_selectable="true"
             app:radius="28dp"

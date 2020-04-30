@@ -6,10 +6,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.mashup.torchlight.R
 
-class ItemSelectorAdapter(private var style: ItemSelectorStyle) : RecyclerView.Adapter<ItemSelectorVH>() {
+class ItemSelectorAdapter(private var style: ItemSelectorStyle) :
+    RecyclerView.Adapter<ItemSelectorVH>() {
     val itemList: ArrayList<ItemSelectorData> = ArrayList()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemSelectorVH {
-        val inflater = parent.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        val inflater =
+            parent.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val view = inflater.inflate(R.layout.view_item_selector_item, parent, false)
         return ItemSelectorVH(
             view
@@ -23,7 +25,8 @@ class ItemSelectorAdapter(private var style: ItemSelectorStyle) : RecyclerView.A
             itemList[position],
             style,
             ::toggleItemSelectedById,
-            ::removeItemById)
+            ::removeItemById
+        )
     }
 
     fun getSelectedItemCount(): Int = itemList.count { x -> x.isSelected }
@@ -32,7 +35,7 @@ class ItemSelectorAdapter(private var style: ItemSelectorStyle) : RecyclerView.A
 
     fun setItemList(dataList: List<ItemSelectorData>) {
         itemList.clear()
-        for(data: ItemSelectorData in dataList) {
+        for (data: ItemSelectorData in dataList) {
             itemList.add(data)
         }
         notifyDataSetChanged()
@@ -42,6 +45,7 @@ class ItemSelectorAdapter(private var style: ItemSelectorStyle) : RecyclerView.A
         itemList.add(data)
         notifyItemInserted(itemList.size - 1)
     }
+
     fun addItem(idx: Int, data: ItemSelectorData) {
         itemList.add(idx, data)
         notifyItemInserted(idx)
@@ -51,12 +55,14 @@ class ItemSelectorAdapter(private var style: ItemSelectorStyle) : RecyclerView.A
         itemList.removeAt(idx)
         notifyItemRemoved(idx)
     }
+
     fun removeItem(data: ItemSelectorData) {
         val idx = itemList.indexOf(data)
         removeItem(idx)
     }
+
     fun removeItemById(id: Int) {
-        val idx = itemList.indexOfFirst { x -> x.id == id  }
+        val idx = itemList.indexOfFirst { x -> x.id == id }
         removeItem(idx)
     }
 
@@ -68,7 +74,8 @@ class ItemSelectorAdapter(private var style: ItemSelectorStyle) : RecyclerView.A
     fun setItemSelected(idx: Int, selected: Boolean) {
         if (selected) {
             if (style.maxSelectedCnt > 0
-                && getSelectedItemCount() >= style.maxSelectedCnt) {
+                && getSelectedItemCount() >= style.maxSelectedCnt
+            ) {
                 return
             }
 
@@ -94,8 +101,9 @@ class ItemSelectorAdapter(private var style: ItemSelectorStyle) : RecyclerView.A
             }
         }
     }
+
     fun setItemSelectedById(id: Int, selected: Boolean) {
-        val idx = itemList.indexOfFirst { x -> x.id == id  }
+        val idx = itemList.indexOfFirst { x -> x.id == id }
         setItemSelected(idx, selected)
     }
 
@@ -103,8 +111,9 @@ class ItemSelectorAdapter(private var style: ItemSelectorStyle) : RecyclerView.A
         val item = itemList[idx]
         setItemSelected(idx, !item.isSelected)
     }
+
     fun toggleItemSelectedById(id: Int) {
-        val idx = itemList.indexOfFirst { x -> x.id == id  }
+        val idx = itemList.indexOfFirst { x -> x.id == id }
         toggleItemSelected(idx)
     }
 }

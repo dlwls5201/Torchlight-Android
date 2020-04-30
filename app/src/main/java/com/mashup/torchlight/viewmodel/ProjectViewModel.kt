@@ -1,8 +1,8 @@
 package com.mashup.torchlight.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.mashup.torchlight.R
+import com.mashup.torchlight.base.BaseViewModel
 import com.mashup.torchlight.model.CreateProjectModel
 import com.mashup.torchlight.model.CreateProjectTitleModel
 import com.mashup.torchlight.model.ProjectModel
@@ -20,7 +20,7 @@ class ProjectViewModel : BaseViewModel() {
             "모집인원과 인원을 설정해주세요..",
             "열정은 어쩌구저쩌구 도움말 텍스트에요. 아마 이 정도 길이면 되지 않을까 싶은데… "
         ),
-       CreateProjectTitleModel("기본정보를 입력해주세.", "열정은 어쩌구저쩌구 도움말 텍스트에요. 아마 이 정도 길이면 되지 않을까 싶은데… ")
+        CreateProjectTitleModel("기본정보를 입력해주세.", "열정은 어쩌구저쩌구 도움말 텍스트에요. 아마 이 정도 길이면 되지 않을까 싶은데… ")
     )
 
     enum class Passion(val int: Int, val level: String, val img: Int) {

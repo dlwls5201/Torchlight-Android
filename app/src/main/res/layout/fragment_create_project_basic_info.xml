@@ -18,70 +18,75 @@
         android:orientation="vertical">
 
 
-
         <LinearLayout
             android:id="@+id/lytName"
-            android:layout_marginTop="32dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
             android:orientation="vertical">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/project_name"
                 android:textColor="@color/text_secondary"
-                android:textSize="14sp"/>
+                android:textSize="14sp" />
+
             <EditText
                 android:id="@+id/etProjectName"
-                android:inputType="textEmailAddress"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:layout_marginTop="16dp"
-                android:text="@={projectVM.data.title}"/>
+                android:inputType="textEmailAddress"
+                android:text="@={projectVM.data.title}" />
         </LinearLayout>
 
 
         <LinearLayout
             android:id="@+id/lytSampleContents"
-            android:layout_marginTop="32dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
             android:orientation="vertical">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/project_sample_content"
                 android:textColor="@color/text_secondary"
-                android:textSize="14sp"/>
+                android:textSize="14sp" />
+
             <EditText
                 android:id="@+id/etSampleContents"
-                android:inputType="textEmailAddress"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:layout_marginTop="16dp"
-                android:text="@={projectVM.data.title}"/>
+                android:inputType="textEmailAddress"
+                android:text="@={projectVM.data.title}" />
         </LinearLayout>
 
 
         <LinearLayout
             android:id="@+id/lytContents"
-            android:layout_marginTop="32dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
             android:orientation="vertical">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/project_detail_content"
                 android:textColor="@color/text_secondary"
-                android:textSize="14sp"/>
+                android:textSize="14sp" />
+
             <EditText
                 android:id="@+id/etContents"
-                android:inputType="textEmailAddress"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:layout_marginTop="16dp"
-                android:text="@={projectVM.data.title}"/>
+                android:inputType="textEmailAddress"
+                android:text="@={projectVM.data.title}" />
         </LinearLayout>
     </LinearLayout>
 </layout>

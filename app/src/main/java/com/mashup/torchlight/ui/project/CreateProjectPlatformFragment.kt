@@ -29,7 +29,7 @@ class CreateProjectPlatformFragment :
         super.onActivityCreated(savedInstanceState)
 
         val dataList = ArrayList<ItemSelectorData>()
-        dataList.add(ItemSelectorData(0, "Te111st",activity!!.getDrawable(R.drawable.ic_android)))
+        dataList.add(ItemSelectorData(0, "Te111st", activity!!.getDrawable(R.drawable.ic_android)))
         dataList.add(ItemSelectorData(1, "Wow1", activity!!.getDrawable(R.drawable.ic_android)))
         dataList.add(ItemSelectorData(2, "Wow2", activity!!.getDrawable(R.drawable.ic_android)))
         selector_project_desktop.setItemList(dataList)

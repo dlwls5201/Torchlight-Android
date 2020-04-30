@@ -3,12 +3,11 @@ package com.mashup.torchlight.ui.project
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.mashup.torchlight.BR
 import com.mashup.torchlight.R
+import com.mashup.torchlight.base.BaseActivity
 import com.mashup.torchlight.databinding.ActivityCreateProjectBinding
-import com.mashup.torchlight.ui.base.BaseActivity
 import com.mashup.torchlight.viewmodel.ProjectViewModel
 import kotlinx.android.synthetic.main.item_btn_bottom.*
 
@@ -25,6 +24,7 @@ class CreateProjectActivity :
             binding.position = ++currentItem
             onFragmentChange(currentItem)
         }
+
         override fun movePrevPage() {
             binding.position = --currentItem
             onBackPressed()

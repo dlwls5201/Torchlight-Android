@@ -38,16 +38,16 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@={signup.data.emailAddress}"
-                    android:inputType="textEmailAddress"
                     android:importantForAutofill="no"
+                    android:inputType="textEmailAddress"
                     tools:ignore="LabelFor" />
                 <Button
                     android:id="@+id/btnChkDuplicate"
                     android:layout_width="100dp"
                     android:layout_height="match_parent"
+                    style="@style/TorchLightButtonSecondary"
                     android:layout_marginStart="8dp"
-                    android:text="@string/signup_check_duplicated"
-                    style="@style/TorchLightButtonSecondary"/>
+                    android:text="@string/signup_check_duplicated" />
             </LinearLayout>
             
             <Button

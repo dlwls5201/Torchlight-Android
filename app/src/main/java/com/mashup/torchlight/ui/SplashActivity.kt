@@ -1,12 +1,11 @@
 package com.mashup.torchlight.ui
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
-import com.mashup.torchlight.ui.signin.SignInActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.mashup.torchlight.ui.signin.StartActivity
 import com.mashup.torchlight.work.initializer.ITorchlightInitializerListener
 import com.mashup.torchlight.work.initializer.TorchlightInitializer
-import org.jetbrains.anko.startActivity
 import timber.log.Timber
 
 class SplashActivity : AppCompatActivity(), ITorchlightInitializerListener {
@@ -29,7 +28,7 @@ class SplashActivity : AppCompatActivity(), ITorchlightInitializerListener {
         Timber.v("Finish Torchlight initialize. It took $initPeriod")
 
         // Todo : If there is already a signed-in user account, skip StartActivity and go to MainActivity directly
-        startActivity<StartActivity>()
+        startActivity(Intent(this, StartActivity::class.java))
         finish()
     }
 }

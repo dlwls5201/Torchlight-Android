@@ -1,7 +1,7 @@
 package com.mashup.torchlight.ui.mypage
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import com.mashup.torchlight.R
 import com.mashup.torchlight.adapter.CreateProfileFragmentAdapter

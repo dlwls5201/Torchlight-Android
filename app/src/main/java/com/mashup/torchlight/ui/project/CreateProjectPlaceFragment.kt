@@ -22,13 +22,13 @@ class CreateProjectPlaceFragment :
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 
-   /* companion object {
-        @JvmStatic
-        fun newInstance(movePageListener: CreateProjectActivity.IMovePageListener):
-                CreateProjectPlaceFragment {
-            val fragment = CreateProjectPlaceFragment()
-            fragment.movePage = movePageListener
-            return fragment
-        }
-    }*/
+    /* companion object {
+         @JvmStatic
+         fun newInstance(movePageListener: CreateProjectActivity.IMovePageListener):
+                 CreateProjectPlaceFragment {
+             val fragment = CreateProjectPlaceFragment()
+             fragment.movePage = movePageListener
+             return fragment
+         }
+     }*/
 }

@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModelProviders
 import com.mashup.torchlight.BR
-import com.mashup.torchlight.ui.base.BaseFragment
+import com.mashup.torchlight.base.BaseFragment
 import com.mashup.torchlight.viewmodel.ProjectViewModel
 
 open class ProjectBaseFragment<B : ViewDataBinding>(

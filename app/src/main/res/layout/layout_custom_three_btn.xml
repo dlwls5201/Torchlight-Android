@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_height="wrap_content"
     android:layout_width="match_parent"
-    android:orientation="vertical"
+    android:layout_height="wrap_content"
     android:background="@color/background"
+    android:orientation="vertical"
     tools:parentTag="android.widget.LinearLayout">
 
     <RadioGroup
@@ -23,10 +22,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
-            android:background="@drawable/item_card_background"
+            style="@style/SmallSingleLine"
             android:button="@null"
             android:gravity="center"
-            style="@style/SmallSingleLine"
+            android:background="@drawable/item_card_background"
             android:text="1" />
 
         <RadioButton
@@ -35,12 +34,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
-            android:background="@drawable/item_card_background"
+            style="@style/SmallSingleLine"
             android:button="@null"
             android:gravity="center"
             android:text="2"
-            style="@style/SmallSingleLine"
-    />
+            android:background="@drawable/item_card_background" />
 
         <RadioButton
             android:layout_weight="1"
@@ -48,13 +46,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
-            android:background="@drawable/item_card_background"
-            android:button="@null"
             style="@style/SmallSingleLine"
+            android:button="@null"
+            android:background="@drawable/item_card_background"
 
             android:gravity="center"
-            android:text="3단계"
-       />
+            android:text="3단계" />
 
     </RadioGroup>
 

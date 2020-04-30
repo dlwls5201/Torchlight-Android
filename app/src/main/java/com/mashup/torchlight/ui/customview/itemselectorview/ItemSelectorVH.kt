@@ -13,10 +13,12 @@ import kotlinx.android.synthetic.main.view_item_selector_item.view.*
 class ItemSelectorVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val bgShape = GradientDrawable()
     val removeShape = GradientDrawable()
-    fun bind(data: ItemSelectorData,
-             style: ItemSelectorStyle,
-             onItemClicked: (id: Int) -> Unit,
-             onRemoveClicked: (id: Int) -> Unit) {
+    fun bind(
+        data: ItemSelectorData,
+        style: ItemSelectorStyle,
+        onItemClicked: (id: Int) -> Unit,
+        onRemoveClicked: (id: Int) -> Unit
+    ) {
         val tv = itemView.txt
         val tvBottom = itemView.txtBottom
         val img = itemView.img
@@ -42,8 +44,7 @@ class ItemSelectorVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         // Icon
         img.setColorFilter(if (data.isSelected) style.selectedIconColor else style.deselectedIconColor)
-        img.layoutParams.width= style.iconSize
-
+        img.layoutParams.width = style.iconSize
 
 
         // BG

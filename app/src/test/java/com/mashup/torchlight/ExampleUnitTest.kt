@@ -1,8 +1,7 @@
 package com.mashup.torchlight
 
 import org.junit.*
-
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
 
 
 /**
@@ -15,6 +14,7 @@ class ExampleUnitTest {
     fun login() {
         val a = "login";
     }
+
     @Before
     fun before() {
         val a = "login";
@@ -23,14 +23,17 @@ class ExampleUnitTest {
     fun some1() {
         assertEquals(4, 2 + 2)
     }
+
     @Test
     fun some2() {
         assertEquals(3, 2 + 2)
     }
+
     @After
     fun after() {
         val a = "login out";
     }
+
     @AfterClass
     fun logout() {
         val a = "login out";

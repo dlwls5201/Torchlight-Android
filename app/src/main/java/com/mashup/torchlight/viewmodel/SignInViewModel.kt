@@ -2,6 +2,7 @@ package com.mashup.torchlight.viewmodel
 
 import android.util.Patterns
 import androidx.lifecycle.MutableLiveData
+import com.mashup.torchlight.base.BaseViewModel
 import com.mashup.torchlight.model.SignInModel
 
 class SignInViewModel : BaseViewModel() {
@@ -18,7 +19,7 @@ class SignInViewModel : BaseViewModel() {
         } ?: false
     }
 
-    fun isValidEmail() : Boolean {
+    fun isValidEmail(): Boolean {
         return data.value?.let {
             val matcher = Patterns.EMAIL_ADDRESS.matcher(it.emailAddress)
             return@let matcher.find()

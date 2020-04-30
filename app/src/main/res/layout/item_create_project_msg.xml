@@ -3,9 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="subtitle"
             type="String" />
+
         <variable
             name="explicate"
             type="String" />
@@ -37,10 +39,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:letterSpacing="-0.02"
+            android:text="@{explicate}"
             android:textColor="@color/text_secondary"
             android:textSize="16sp"
-            android:text="@{explicate}"
-            tools:text="열정은 어쩌구저쩌구 도움말 텍스트에요. 아마 이 정도 길이면 되지 않을까 싶은데… 나중에 바뀔 수도 있어요."
-            />
+            tools:text="열정은 어쩌구저쩌구 도움말 텍스트에요. 아마 이 정도 길이면 되지 않을까 싶은데… 나중에 바뀔 수도 있어요." />
 </LinearLayout>
 </layout>

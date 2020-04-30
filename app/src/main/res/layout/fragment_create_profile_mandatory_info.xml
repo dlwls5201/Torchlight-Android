@@ -58,6 +58,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/profile_job"
                 android:layout_marginTop="36dp"/>
+
             <com.mashup.torchlight.ui.customview.itemselectorview.ItemSelectorView
                 android:id="@+id/selector_profile_job"
                 android:layout_width="match_parent"
@@ -65,19 +66,19 @@
                 app:display_type="text"
                 app:multi_selectable="true"
                 app:scrollable="false"
-                app:removable="true"
-                app:radius="8dp"
-                app:text_size="12sp"
-                app:item_padding="12dp"
-                app:item_margin="4dp"
                 app:border_color="@android:color/transparent"
-                app:selected_color="@color/main_400"
-                app:selected_text_color="@color/text_button"
                 app:deselected_color="@color/editText_bg"
                 app:deselected_text_color="@color/text_primary"
-                app:remove_btn_border_color="@android:color/transparent"
+                app:item_margin="4dp"
+                app:item_padding="12dp"
+                app:radius="8dp"
+                app:removable="true"
                 app:remove_btn_bg_color="@color/text_disabled"
-                app:remove_btn_x_color="@color/black"/>
+                app:remove_btn_border_color="@android:color/transparent"
+                app:remove_btn_x_color="@color/black"
+                app:selected_color="@color/main_400"
+                app:selected_text_color="@color/text_button"
+                app:text_size="12sp" />
 
             <!-- Occupation -->
             <TextView

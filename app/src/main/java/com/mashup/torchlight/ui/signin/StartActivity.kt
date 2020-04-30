@@ -1,12 +1,12 @@
 package com.mashup.torchlight.ui.signin
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.mashup.torchlight.R
 import com.mashup.torchlight.ui.main.MainActivity
 import com.mashup.torchlight.ui.signup.SignUpActivity
 import kotlinx.android.synthetic.main.activity_start.*
-import org.jetbrains.anko.startActivity
 
 class StartActivity : AppCompatActivity() {
 
@@ -15,14 +15,14 @@ class StartActivity : AppCompatActivity() {
         setContentView(R.layout.activity_start)
 
         btnDemo.setOnClickListener {
-            startActivity<MainActivity>();
+            startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
         btnSignUp.setOnClickListener {
-            startActivity<SignUpActivity>()
+            startActivity(Intent(this, SignUpActivity::class.java))
         }
         tvSignIn.setOnClickListener {
-            startActivity<SignInActivity>()
+            startActivity(Intent(this, SignInActivity::class.java))
         }
     }
 }
