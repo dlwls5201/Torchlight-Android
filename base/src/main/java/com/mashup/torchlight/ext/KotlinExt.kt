@@ -4,6 +4,7 @@ import android.app.AlertDialog
 import android.content.Context
 import android.content.DialogInterface
 import android.widget.Toast
+import androidx.annotation.StringRes
 import com.mashup.torchlight.ext.dialog.AlertBuilder
 import com.mashup.torchlight.ext.dialog.AndroidAlertBuilder
 
@@ -21,6 +22,12 @@ inline fun <A, B, C, R> ifNotNull(a: A?, b: B?, c: C?, code: (A, B, C) -> R) {
 
 fun Context.toast(message: CharSequence): Toast = Toast
     .makeText(this, message, Toast.LENGTH_SHORT)
+    .apply {
+        show()
+    }
+
+fun Context.toast(@StringRes resId: Int): Toast = Toast
+    .makeText(this, getString(resId), Toast.LENGTH_SHORT)
     .apply {
         show()
     }

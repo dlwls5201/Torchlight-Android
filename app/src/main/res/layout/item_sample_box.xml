@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/item_card_background"
+    android:backgroundTint="#202020"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/ivSampleIcon"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@color/main_400" />
+
+
+    <TextView
+        android:id="@+id/tvSampleTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/create_project_start_margin"
+        android:letterSpacing="-0.02"
+        android:lineSpacingExtra="3sp"
+        android:textColor="@color/text_secondary"
+        android:textSize="14sp"
+        tools:text="프로젝트 지역" />
+
+    <TextView
+        android:id="@+id/tvSampleContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:letterSpacing="-0.02"
+        android:lineSpacingExtra="5sp"
+        android:textColor="@color/text_primary"
+        android:textSize="16sp"
+        tools:text="서울 강남역" />
+</LinearLayout>

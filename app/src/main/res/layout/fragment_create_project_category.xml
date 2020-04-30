@@ -1,14 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.project.CreateProjectCategoryFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="projectVM"
+            type="com.mashup.torchlight.viewmodel.ProjectViewModel" />
+    </data>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_marginStart="@dimen/create_project_start_margin"
+        android:layout_marginEnd="@dimen/create_project_start_margin"
+        android:orientation="vertical">
 
-</FrameLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:letterSpacing="-0.02"
+            android:lineSpacingExtra="3sp"
+            android:text="선택된 카테고리 (최대 3개)"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp" />
+
+        <com.mashup.torchlight.ui.customview.itemselectorview.ItemSelectorView
+            android:id="@+id/selector_project_selelct_category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/create_project_start_margin"
+            app:border_color="@android:color/transparent"
+            app:deselected_color="@color/editText_bg"
+            app:deselected_text_color="@color/text_primary"
+            app:display_type="text"
+            app:item_margin="4dp"
+            app:item_padding="12dp"
+            app:multi_selectable="false"
+            app:radius="8dp"
+            app:removable="true"
+            app:remove_btn_bg_color="@color/text_disabled"
+            app:remove_btn_border_color="@android:color/transparent"
+            app:remove_btn_x_color="@color/black"
+            app:scrollable="false"
+            app:selected_color="@color/editText_bg"
+            app:selected_text_color="@color/text_primary"
+            app:text_size="12sp" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:letterSpacing="-0.02"
+            android:lineSpacingExtra="3sp"
+            android:text="전체 카테고리"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp" />
+
+        <com.mashup.torchlight.ui.customview.itemselectorview.ItemSelectorView
+            android:id="@+id/selector_project_category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:border_color="@android:color/transparent"
+            app:deselected_color="@color/editText_bg"
+            app:deselected_text_color="@color/text_primary"
+            app:display_type="text"
+            app:item_margin="4dp"
+            app:item_padding="12dp"
+            app:multi_selectable="true"
+            app:radius="8dp"
+            app:removable="false"
+            app:scrollable="false"
+            app:selected_color="@color/main_400"
+            app:selected_text_color="@color/text_button"
+            app:text_size="12sp" />
+    </LinearLayout>
+</layout>

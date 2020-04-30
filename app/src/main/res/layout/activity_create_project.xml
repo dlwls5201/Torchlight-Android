@@ -5,9 +5,16 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="projectVM"
             type="com.mashup.torchlight.viewmodel.ProjectViewModel" />
+
+        <variable
+            name="position"
+            type="Integer" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -22,8 +29,9 @@
             android:layout_height="@dimen/global_top_bar_hight"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:projectVM="@{projectVM}"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="@{projectVM.data.title}" />
+
 
         <include
             android:id="@+id/item_create_project_msg"
@@ -32,37 +40,25 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/create_project_start_margin"
             android:layout_marginEnd="@dimen/create_project_start_margin"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="26dp"
+            app:explicate="@{projectVM.getSubTitle(position).explicate}"
+            app:subtitle="@{projectVM.getSubTitle(position).sub_title}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/action_bar_title" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvCategory"
-            android:layout_width="0dp"
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/create_project_start_margin"
-            android:layout_marginEnd="@dimen/create_project_start_margin"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/item_create_project_msg" />
-
-        <com.mashup.torchlight.ui.project.CustomThreeBtn
-            android:id="@+id/btnSelectThree"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/create_project_start_margin"
-            android:layout_marginEnd="@dimen/create_project_start_margin"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rvCategory" />
 
         <include
             android:id="@+id/btnBottom"
             layout="@layout/item_btn_bottom"
             android:layout_width="match_parent"
-            app:layout_constraintBottom_toBottomOf="parent"
             android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:projectVM="@{projectVM}" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

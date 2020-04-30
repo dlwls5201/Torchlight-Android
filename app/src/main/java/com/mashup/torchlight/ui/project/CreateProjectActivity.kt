@@ -1,56 +1,80 @@
 package com.mashup.torchlight.ui.project
 
 import android.os.Bundle
-import android.util.Log
-import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
-import com.google.android.flexbox.FlexDirection
-import com.google.android.flexbox.FlexboxLayoutManager
-import com.google.android.flexbox.JustifyContent
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
+import androidx.lifecycle.ViewModelProviders
+import com.mashup.torchlight.BR
 import com.mashup.torchlight.R
-import com.mashup.torchlight.adapter.CategoryAdapter
+import com.mashup.torchlight.base.BaseActivity
 import com.mashup.torchlight.databinding.ActivityCreateProjectBinding
-import kotlinx.android.synthetic.main.activity_create_project.*
+import com.mashup.torchlight.viewmodel.ProjectViewModel
+import kotlinx.android.synthetic.main.item_btn_bottom.*
 
 
-class CreateProjectActivity : AppCompatActivity() {
+class CreateProjectActivity :
+    BaseActivity<ActivityCreateProjectBinding>(R.layout.activity_create_project) {
+
+    private lateinit var viewModel: ProjectViewModel
+    lateinit var transaction: FragmentTransaction
+    var currentItem = 0
+
+    private val movePageListener = object : IMovePageListener {
+        override fun moveNextPage() {
+            binding.position = ++currentItem
+            onFragmentChange(currentItem)
+        }
+
+        override fun movePrevPage() {
+            binding.position = --currentItem
+            onBackPressed()
+        }
+    }
+
+    fun onFragmentChange(position: Int) {
+        when (position) {
+            PagePos.PASSION.pos -> replaceFragment(CreateProjectPlatformFragment())
+            PagePos.FLATFORM.pos -> replaceFragment(CreateProjectPlatformFragment())
+            PagePos.CATEGORY.pos -> replaceFragment(CreateProjectCategoryFragment())
+            PagePos.TERM.pos -> replaceFragment(CreateProjectTermFragment())
+            PagePos.PLACE.pos -> replaceFragment(CreateProjectPlaceFragment())
+            PagePos.BASICINFO.pos -> replaceFragment(CreateProjectBasicInfoFragment())
+            else -> replaceFragment(CreateProjectBasicInfoFragment())  // bullshit. just return anything
+        }
+    }
+
+    enum class PagePos(val pos: Int) {
+        PASSION(0), FLATFORM(1), CATEGORY(2), TERM(3), PLACE(4), BASICINFO(5)
+    }
+
+    private fun replaceFragment(fragment: Fragment) {
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.fragment_container, fragment).addToBackStack("").commit()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        viewModel = ViewModelProviders.of(this).get(ProjectViewModel::class.java)
+        binding.setVariable(BR.projectVM, viewModel)
+        binding.position = currentItem
 
-        val binding = DataBindingUtil.setContentView<ActivityCreateProjectBinding>(this, R.layout.activity_create_project)
-        binding.lifecycleOwner = this
+        val PASSION = CreateProjectPassionFragment()
+        transaction = supportFragmentManager.beginTransaction()
+        transaction.add(R.id.fragment_container, PASSION).commit()
 
-        //TODO:: categoty 부분 + 버튼3개 커스텀뷰 테스트코드입니당 쓰실경우 이거 쓰면 되고 나중에 지울게요!
-        rvCategory.layoutManager = FlexboxLayoutManager(this)
-        val layoutManager = FlexboxLayoutManager(this)
-        layoutManager.flexDirection = FlexDirection.ROW
-        layoutManager.justifyContent = JustifyContent.FLEX_START
-        rvCategory.layoutManager = layoutManager
+        btnBottomLeft.setOnClickListener {
+            movePageListener.movePrevPage()
+        }
+        btnBottomRight.setOnClickListener {
+            movePageListener.moveNextPage()
+        }
 
-        val categoryList = mutableListOf(
-            "ononeonee",
-            "two",
-            "oneoneone",
-            "two",
-            "one",
-            "onetwo",
-            "one",
-            "onetwo",
-            "one",
-            "two"
-        )
+    }
 
-        val adapter = CategoryAdapter(categoryList)
-        rvCategory.adapter = adapter
-        adapter.notifyDataSetChanged()
-
-        btnSelectThree.setText("단계","2단계","3단계")
-        btnSelectThree.setOnButtonClick(object : CustomThreeBtn.OnButtonClick {
-            override fun onSelect(index: Int) {
-                btnSelectThree.setCheckId(index)
-                Log.e("123123", "" + btnSelectThree.getCheckId())
-            }
-        })
+    interface IMovePageListener {
+        fun moveNextPage()
+        fun movePrevPage()
     }
 }
+

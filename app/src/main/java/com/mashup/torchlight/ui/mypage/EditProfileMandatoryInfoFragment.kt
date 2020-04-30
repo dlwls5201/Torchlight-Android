@@ -1,6 +1,5 @@
 package com.mashup.torchlight.ui.mypage
 
-import android.content.ClipData
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +7,7 @@ import android.view.ViewGroup
 
 import com.mashup.torchlight.R
 import com.mashup.torchlight.databinding.FragmentCreateProfileConfirmBinding
-import com.mashup.torchlight.ui.customview.ItemSelectorData
+import com.mashup.torchlight.ui.customview.itemselectorview.ItemSelectorData
 import kotlinx.android.synthetic.main.fragment_create_profile_mandatory_info.*
 
 class EditProfileMandatoryInfoFragment

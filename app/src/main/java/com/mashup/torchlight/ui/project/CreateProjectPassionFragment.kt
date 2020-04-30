@@ -1,32 +1,24 @@
 package com.mashup.torchlight.ui.project
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import com.mashup.torchlight.R
+import com.mashup.torchlight.databinding.FragmentCreateProjectPassionBinding
+import com.mashup.torchlight.ui.customview.CustomThreeBtn
+import kotlinx.android.synthetic.main.fragment_create_project_passion.*
 
-class CreateProjectPassionFragment : Fragment() {
+class CreateProjectPassionFragment :
+    ProjectBaseFragment<FragmentCreateProjectPassionBinding>(R.layout.fragment_create_project_passion) {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
 
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_create_project_passion, container, false)
-    }
-
-
-    companion object {
-        @JvmStatic
-        fun newInstance() =
-            CreateProjectPassionFragment().apply {
+        super.onActivityCreated(savedInstanceState)
+        btnSelectThree.setText("1단계", "2단계", "3단계")
+        btnSelectThree.setOnButtonClick(object : CustomThreeBtn.OnButtonClick {
+            override fun onSelect(index: Int) {
+                btnSelectThree.setCheckId(index)
+                viewModel.setStagePassion(index)
             }
+        })
+
     }
 }

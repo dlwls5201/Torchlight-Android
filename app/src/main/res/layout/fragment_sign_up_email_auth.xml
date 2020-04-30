@@ -31,19 +31,21 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
+                android:layout_marginTop="16dp"
                 android:orientation="horizontal">
                 <EditText
                     android:id="@+id/etAuthCode"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:text="@={signup.data.authCode}"
-                    android:inputType="textEmailAddress"
+                    android:inputType="text"
                     android:layout_weight="1" />
                 <TextView
                     android:id="@+id/tvAutoCodeTime"
                     android:layout_width="80dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
+                    android:textColor="@color/main_400"
                     tools:text="2:52"/>
             </LinearLayout>
 
@@ -51,11 +53,14 @@
                 android:id="@+id/btnResend"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                style="@style/TorchLightButtonSecondary"
+                android:layout_marginTop="16dp"
                 android:text="@string/signup_send_again" />
             <Button
                 android:id="@+id/btnConfirm"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/common_okay" />
 
         </LinearLayout>

@@ -67,7 +67,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="27dp"
                     android:text="@string/profile_passion"/>
-                <com.mashup.torchlight.ui.project.CustomThreeBtn
+
+                <com.mashup.torchlight.ui.customview.CustomThreeBtn
                     android:id="@+id/select_passion_three_btn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />

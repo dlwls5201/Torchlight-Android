@@ -4,10 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import com.mashup.torchlight.R
+import com.mashup.torchlight.databinding.FragmentCreateProjectTermBinding
+import com.mashup.torchlight.ui.customview.CustomThreeBtn
+import kotlinx.android.synthetic.main.fragment_create_project_passion.*
 
-class CreateProjectTermFragment : Fragment() {
+class CreateProjectTermFragment :
+    ProjectBaseFragment<FragmentCreateProjectTermBinding>(R.layout.fragment_create_project_term) {
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,14 +23,19 @@ class CreateProjectTermFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_create_project_term, container, false)
+        return super.onCreateView(inflater, container, savedInstanceState)
     }
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
 
-    companion object {
-        @JvmStatic
-        fun newInstance() =
-            CreateProjectTermFragment().apply {
+        super.onActivityCreated(savedInstanceState)
+        btnSelectThree.setText("1단계", "2단계", "3단계")
+        btnSelectThree.setOnButtonClick(object : CustomThreeBtn.OnButtonClick {
+            override fun onSelect(index: Int) {
+                btnSelectThree.setCheckId(index)
             }
+        })
+
     }
+
 }

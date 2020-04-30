@@ -10,92 +10,118 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:context=".ui.signup.SignUpUserInfoFragment"
-        android:orientation="vertical"
-        android:layout_gravity="center">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <!-- top info -->
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/signup_email" />
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textAlignment="textEnd"
-                android:text="@{signup.data.emailAddress}" />
-        </LinearLayout>
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                tools:context=".ui.signup.SignUpUserInfoFragment">
 
-        <!-- Name -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="44dp"
-            android:text="@string/signup_name" />
-        <EditText
-            android:id="@+id/tvName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@={signup.data.name}"
-            android:inputType="textEmailAddress" />
+                <!-- top info -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-        <!-- Password -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="36dp"
-            android:text="@string/signup_password" />
-        <EditText
-            android:id="@+id/tvPasswd"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@={signup.data.passwd}"
-            android:inputType="textPassword" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/signup_email" />
 
-        <!-- Password confirm -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="36dp"
-            android:text="@string/signup_password_confirm" />
-        <EditText
-            android:id="@+id/tvPasswd2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@={signup.data.passwdConfirm}"
-            android:inputType="textPassword" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@{signup.data.emailAddress}"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
 
-        <!-- Disclaimer/T&C -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="36dp"
-            android:text="@string/signup_agree_disclaimer" />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <CheckedTextView
-                android:id="@+id/chkDisclaimer"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                android:gravity="center_vertical"
-                android:drawableStart="?android:attr/listChoiceIndicatorSingle"
-                android:text="@string/signup_im_agree_disclaimer_msg" />
-            <Button
-                android:id="@+id/btnWatchDisclaimer"
-                android:layout_marginStart="26dp"
-                android:layout_width="64dp"
-                android:layout_height="50dp"
-                android:text="@string/common_watch"/>
-        </LinearLayout>
+                <!-- Name -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="44dp"
+                    android:text="@string/signup_name" />
+
+                <EditText
+                    android:id="@+id/tvName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:inputType="textEmailAddress"
+                    android:text="@={signup.data.name}" />
+
+                <!-- Password -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:text="@string/signup_password" />
+
+                <EditText
+                    android:id="@+id/tvPasswd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:inputType="textPassword"
+                    android:text="@={signup.data.passwd}" />
+
+                <!-- Password confirm -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:text="@string/signup_password_confirm" />
+
+                <EditText
+                    android:id="@+id/tvPasswd2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:inputType="textPassword"
+                    android:text="@={signup.data.passwdConfirm}" />
+
+                <!-- Disclaimer/T&C -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:text="@string/signup_agree_disclaimer" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <CheckedTextView
+                        android:id="@+id/chkDisclaimer"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:drawableStart="?android:attr/listChoiceIndicatorSingle"
+                        android:gravity="center_vertical"
+                        android:text="@string/signup_im_agree_disclaimer_msg" />
+
+                    <Button
+                        android:id="@+id/btnWatchDisclaimer"
+                        style="@style/TorchLightButtonSecondary"
+                        android:layout_width="64dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="26dp"
+                        android:text="@string/common_watch" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
 
         <!-- Register button -->
         <Button
@@ -104,6 +130,5 @@
             android:layout_marginTop="38dp"
             android:text="@string/signup_register"
             />
-
     </LinearLayout>
 </layout>

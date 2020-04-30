@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModelProviders
 import com.mashup.torchlight.R
 import com.mashup.torchlight.adapter.SignUpFragmentAdapter
-import com.mashup.torchlight.adapter.SignUpFragmentAdapter.Companion.PagePos.*
+import com.mashup.torchlight.adapter.SignUpFragmentAdapter.Companion.PagePos.EMAIL_AUTH
 import com.mashup.torchlight.base.BaseActivity
 import com.mashup.torchlight.databinding.ActivitySignUpBinding
 import com.mashup.torchlight.viewmodel.SignUpViewModel
@@ -26,7 +26,6 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sign_up)
         viewModel = ViewModelProviders.of(this).get(SignUpViewModel::class.java)
 
         signUpAdapter = SignUpFragmentAdapter(supportFragmentManager, lifecycle, movePageListener)
