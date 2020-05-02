@@ -17,39 +17,38 @@
         android:weightSum="3">
 
         <RadioButton
-            android:layout_weight="1"
             android:id="@+id/rb1"
+            style="@style/SmallSingleLine"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
-            style="@style/SmallSingleLine"
+            android:layout_weight="1"
+            android:background="@drawable/item_card_background"
             android:button="@null"
             android:gravity="center"
-            android:background="@drawable/item_card_background"
-            android:text="1" />
+            android:text="1단계" />
 
         <RadioButton
-            android:layout_weight="1"
             android:id="@+id/rb2"
+            style="@style/SmallSingleLine"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
-            style="@style/SmallSingleLine"
+            android:layout_weight="1"
+            android:background="@drawable/item_card_background"
             android:button="@null"
             android:gravity="center"
-            android:text="2"
-            android:background="@drawable/item_card_background" />
+            android:text="2단계" />
 
         <RadioButton
-            android:layout_weight="1"
             android:id="@+id/rb3"
+            style="@style/SmallSingleLine"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
-            style="@style/SmallSingleLine"
-            android:button="@null"
+            android:layout_weight="1"
             android:background="@drawable/item_card_background"
-
+            android:button="@null"
             android:gravity="center"
             android:text="3단계" />
 

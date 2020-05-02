@@ -5,22 +5,30 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <!-- Common -->
-    <string name="common_okay">Okay</string>
-    <string name="common_cancel">Cancel</string>
-    <string name="common_yes">Yes</string>
-    <string name="common_no">No</string>
-    <string name="common_watch">Watch</string>
-    <string name="common_next">Next</string>
-    <string name="common_prev">Previous</string>
-    <string name="common_expand">Expand</string>
-    <string name="common_collapse">Collapse</string>
-    <string name="common_home">홈</string>
-    <string name="common_my_project">내 프로젝트</string>
-    <string name="common_notification">알림</string>
-    <string name="common_my_page">마이페이</string>
+    <string name="okay">Okay</string>
+    <string name="cancel">Cancel</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="watch">Watch</string>
+    <string name="next">Next</string>
+    <string name="prev">Previous</string>
+    <string name="expand">Expand</string>
+    <string name="collapse">Collapse</string>
+    <string name="home">홈</string>
+    <string name="notification">알림</string>
+    <string name="my_page">마이페이지</string>
+    <string name="next_to">다음으로</string>
+    <string name="make_project">프로젝트 만들기</string>
+    <string name="project_area">프로젝트 지역</string>
+    <string name="passion">열정</string>
+    <string name="scale">규모</string>
+    <string name="start_expected">시작 예정</string>
 
     <!-- Home -->
     <string name="home_search_interested_project">관심있는 프로젝트를 검색해보세요</string>
+    <string name="order_by_recent">최신순</string>
+    <string name="order_by_platform">플랫폼</string>
+    <string name="required_member">%d / %d 모집중</string>
 
     <!-- My Project -->
     <string name="my_project">내 프로젝트</string>
@@ -79,12 +87,17 @@
     <string name="profile_grd2">Grade 2</string>
     <string name="profile_grd3">Grade 3</string>
     <string name="profile_create_profile">Create profile</string>
-    <string name="project_platform"><![CDATA[Mobile &amp; Web]]></string>
-    <string name="desktop">Desktop</string>
+
+    <!-- Project -->
+    <string name="project_platform" cdata="true"><![CDATA[Mobile &amp; Web]]></string>
+    <string name="project_desktop">Desktop</string>
     <string name="project_field">Field</string>
     <string name="project_name">프로젝트 제목</string>
     <string name="project_detail_content">상세 내용</string>
+    <string name="project_quest_contact">문의하기 연락처</string>
     <string name="project_sample_content">한 줄 설명</string>
+    <string name="project_all_member">총 인원 %d명</string>
+    <string name="project_joined_and_required_member">%d/%d명</string>
 
 
 </resources>

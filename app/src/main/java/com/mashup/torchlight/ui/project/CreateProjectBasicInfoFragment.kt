@@ -1,27 +1,44 @@
 package com.mashup.torchlight.ui.project
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import com.mashup.torchlight.R
 import com.mashup.torchlight.databinding.FragmentCreateProjectBasicInfoBinding
-
+import com.mashup.torchlight.ext.toast
+import kotlinx.android.synthetic.main.fragment_create_project_basic_info.*
+import kotlinx.android.synthetic.main.view_create_category_button.*
 
 class CreateProjectBasicInfoFragment :
     ProjectBaseFragment<FragmentCreateProjectBasicInfoBinding>(R.layout.fragment_create_project_basic_info) {
 
+    companion object {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+        fun newInstance() = CreateProjectBasicInfoFragment()
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return super.onCreateView(inflater, container, savedInstanceState)
+    override fun initData() {
+
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+        initButton()
+    }
+
+    private fun initButton() {
+        btnCreateProjectNext.setOnClickListener {
+            val title = etCreateProjectBasicInfoTitle.text.toString()
+            val summary = etCreateProjectBasicInfoSummary.text.toString()
+            val description = etCreateProjectBasicInfoDescription.text.toString()
+            val phone = etCreateProjectBasicInfoPhone.text.toString()
+
+            if (title.isEmpty() || summary.isEmpty() || description.isEmpty()) {
+                requireContext().toast("기본 정보를 입력해 주세요.")
+            } else {
+                projectVM.setBasicInfo(title, summary, description, phone)
+                projectVM.goNextStep()
+            }
+        }
     }
 
 }

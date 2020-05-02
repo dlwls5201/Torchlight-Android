@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="member"
+            type="com.mashup.torchlight.ui.project.model.ProjectModel.Member" />
+    </data>
+
+    <FrameLayout
+        android:id="@+id/btnItemNeedJob"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:foreground="?attr/selectableItemBackground">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@drawable/item_card_background"
+            android:backgroundTint="#202020"
+            android:padding="16dp">
+
+            <ImageView
+                android:id="@+id/ivNeedJob"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_project_manager"
+                bind:setJobImage="@{member}" />
+
+            <TextView
+                android:id="@+id/tvNeedJob"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="16dp"
+                android:layout_toEndOf="@id/ivNeedJob"
+                android:text="@{member.job}"
+                android:textColor="@color/text_secondary"
+                android:textSize="14sp"
+                tools:text="기획자" />
+
+            <TextView
+                android:id="@+id/tvNeedJobNum"
+                style="@style/SmallMultiLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical"
+                android:text="@{@string/project_joined_and_required_member(member.joinedMember, member.requiredMember)}"
+                tools:text="1/2명" />
+        </RelativeLayout>
+    </FrameLayout>
+</layout>

@@ -1,19 +1,24 @@
 package com.mashup.torchlight.ui.main
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.mashup.torchlight.R
-import com.mashup.torchlight.adapter.MainFragmentAdapter
 import com.mashup.torchlight.base.BaseActivity
 import com.mashup.torchlight.databinding.ActivityMainBinding
-import kotlinx.android.synthetic.main.activity_main.*
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import com.mashup.torchlight.ui.dialog.TorchlightDialog
+import com.mashup.torchlight.ui.project.CreateProjectActivity
+import com.mashup.torchlight.util.DLog
 
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main),
     BottomNavigationView.OnNavigationItemSelectedListener {
 
-    private val mainViewModel: MainViewModel by viewModel()
+    companion object {
+
+        const val REQUEST_CODE_CREATE_PROJECT = 1000
+    }
 
     private val mainAdapter by lazy {
         MainFragmentAdapter(supportFragmentManager, lifecycle)
@@ -22,10 +27,47 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main),
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        vpMain.adapter = mainAdapter
-        vpMain.isUserInputEnabled = false
+        initMainAdapter()
+        initButton()
+    }
 
-        bnvMain.setOnNavigationItemSelectedListener(this)
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        DLog.d("requestCode : $requestCode , resultCode : $resultCode, data : $data")
+        if (requestCode == REQUEST_CODE_CREATE_PROJECT) {
+            if (resultCode == Activity.RESULT_OK) {
+                showCreateCompleteDialog()
+            }
+        }
+    }
+
+    private fun showCreateCompleteDialog() {
+        val dialog = TorchlightDialog.create(
+            title = "프로젝트 생성이\n완료되었습니다!",
+            message = "프로젝트가 생성되었습니다. 새로운 멤버의 연락을 기다려보세요.",
+            btnOk = "확인"
+        )
+        dialog.show(supportFragmentManager, dialog.tag)
+    }
+
+    private fun initMainAdapter() {
+        with(binding) {
+            vpMain.adapter = mainAdapter
+            vpMain.isUserInputEnabled = false
+        }
+    }
+
+    private fun initButton() {
+        with(binding) {
+            btnMain.setOnNavigationItemSelectedListener(this@MainActivity)
+
+            btnMainCreateProject.setOnClickListener {
+                startActivityForResult(
+                    Intent(this@MainActivity, CreateProjectActivity::class.java),
+                    REQUEST_CODE_CREATE_PROJECT
+                )
+            }
+        }
     }
 
     override fun onNavigationItemSelected(menuItem: MenuItem): Boolean {
@@ -51,6 +93,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main),
     }
 
     private fun changeMainFragment(pos: Int) {
-        vpMain.setCurrentItem(pos, false)
+        binding.vpMain.setCurrentItem(pos, false)
     }
 }

@@ -1,92 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <data>
-
-        <import type="android.view.View" />
-
-        <variable
-            name="projectVM"
-            type="com.mashup.torchlight.viewmodel.ProjectViewModel" />
-    </data>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="@dimen/create_project_start_margin"
-        android:layout_marginEnd="@dimen/create_project_start_margin"
         android:orientation="vertical">
 
-
-        <LinearLayout
-            android:id="@+id/lytName"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:orientation="vertical">
+            android:layout_height="0dp"
+            android:layout_weight="1">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/project_name"
-                android:textColor="@color/text_secondary"
-                android:textSize="14sp" />
-
-            <EditText
-                android:id="@+id/etProjectName"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:layout_marginTop="16dp"
-                android:inputType="textEmailAddress"
-                android:text="@={projectVM.data.title}" />
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:id="@+id/lytSampleContents"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/project_sample_content"
-                android:textColor="@color/text_secondary"
-                android:textSize="14sp" />
+                android:layout_marginStart="@dimen/create_project_start_margin"
+                android:layout_marginEnd="@dimen/create_project_start_margin"
+                android:orientation="vertical"
+                android:paddingBottom="16dp">
 
-            <EditText
-                android:id="@+id/etSampleContents"
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:layout_marginTop="16dp"
-                android:inputType="textEmailAddress"
-                android:text="@={projectVM.data.title}" />
-        </LinearLayout>
+                <TextView
+                    style="@style/TitleSingleLine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="26dp"
+                    android:text="기본정보를 입력해주세요." />
 
+                <TextView
+                    style="@style/SmallMultiLine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:lineSpacingExtra="3sp"
+                    android:text="열정은 어쩌구저쩌구 도움말 텍스트에요. 아마 이 정도 길이면 되지 않을까 싶은데… "
+                    android:textColor="@color/text_secondary" />
 
-        <LinearLayout
-            android:id="@+id/lytContents"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/project_detail_content"
-                android:textColor="@color/text_secondary"
-                android:textSize="14sp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/project_name"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="14sp" />
 
-            <EditText
-                android:id="@+id/etContents"
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:layout_marginTop="16dp"
-                android:inputType="textEmailAddress"
-                android:text="@={projectVM.data.title}" />
-        </LinearLayout>
+                    <EditText
+                        android:id="@+id/etCreateProjectBasicInfoTitle"
+                        style="@style/TorchLightEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="16dp"
+                        android:inputType="textEmailAddress" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/project_sample_content"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/etCreateProjectBasicInfoSummary"
+                        style="@style/TorchLightEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="16dp"
+                        android:inputType="textEmailAddress" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/project_detail_content"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/etCreateProjectBasicInfoDescription"
+                        style="@style/TorchLightEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="168dp"
+                        android:layout_marginTop="16dp"
+                        android:inputType="textEmailAddress" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/project_quest_contact"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/etCreateProjectBasicInfoPhone"
+                        style="@style/TorchLightEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="16dp"
+                        android:inputType="phone" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </ScrollView>
+
+        <include layout="@layout/view_create_category_button" />
     </LinearLayout>
 </layout>

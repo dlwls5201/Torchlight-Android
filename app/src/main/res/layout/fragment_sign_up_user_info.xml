@@ -116,7 +116,7 @@
                         android:layout_width="64dp"
                         android:layout_height="50dp"
                         android:layout_marginStart="26dp"
-                        android:text="@string/common_watch" />
+                        android:text="@string/watch" />
                 </LinearLayout>
 
             </LinearLayout>

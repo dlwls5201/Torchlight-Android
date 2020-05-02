@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/create_project_start_margin"
+            android:layout_marginEnd="@dimen/create_project_start_margin"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TitleSingleLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="26dp"
+                android:text="기간을 설정해주세요." />
+
+            <TextView
+                style="@style/SmallMultiLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:lineSpacingExtra="3sp"
+                android:text="열정은 어쩌구저쩌구 도움말 텍스트에요. 아마 이 정도 길이면 되지 않을까 싶은데… "
+                android:textColor="@color/text_secondary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="3sp"
+                android:text="프로젝트 규모"
+                android:textColor="@color/text_secondary"
+                android:textSize="14sp" />
+
+
+            <com.mashup.torchlight.ui.customview.CustomThreeBtn
+                android:id="@+id/btnSelectThree"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:layout_marginTop="@dimen/create_project_start_margin" />
+
+
+            <TextView
+                android:id="@+id/tvCreateProjectMemberAndTermDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/create_project_start_margin"
+                android:gravity="center_horizontal"
+                android:textColor="@color/text_secondary"
+                android:textSize="14sp"
+                tools:text="1개월 이내로 프로젝트를 진행합니다." />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="48dp"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="3sp"
+                android:text="시작 예정일"
+                android:textColor="@color/text_secondary"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tvCreateProjectMemberAndTermDate"
+                style="@style/SmallSingleLine"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/create_project_start_margin"
+                android:background="@drawable/item_card_background"
+                android:gravity="center_horizontal"
+                android:padding="15dp"
+                android:textSize="14sp"
+                tools:text="2019. 10. 31 토요일" />
+        </LinearLayout>
+
+        <include layout="@layout/view_create_category_button" />
+
+    </LinearLayout>
+</layout>

@@ -1,24 +1,33 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/main_400</item>
         <item name="colorPrimaryDark">@color/black</item>
         <item name="colorAccent">@color/colorAccent</item>
+
         <!-- No Title Bar-->
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
 
         <!-- Default components'(views') style -->
         <item name="android:windowBackground">@color/background</item>
-        <item name="android:textColor">@color/text_secondary</item>
-        <item name="buttonStyle">@style/TorchLightButtonPrimary</item>
-        <item name="android:textViewStyle">@style/TorchLightTextView</item>
-        <item name="editTextStyle">@style/TorchLightEditText</item>
     </style>
 
     <style name="Splash" parent="Theme.AppCompat.NoActionBar">
         <item name="android:windowBackground">@drawable/splash</item>
+    </style>
+
+    <style name="AppDialogTheme" parent="Theme.AppCompat.Dialog">
+        <!--item name="colorAccent">@color/orange_base</item-->
+        <item name="android:windowMinWidthMinor">90%</item>
+    </style>
+
+    <style name="dialogTransparent" parent="AppDialogTheme">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation</item>
     </style>
 
     <style name="DefaultAppBarLayout" parent="Widget.Design.AppBarLayout">
@@ -42,6 +51,8 @@
     </style>
 
     <style name="TorchLightEditText" parent="@android:style/Widget.Material.EditText">
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
         <item name="android:textColor">@color/text_primary</item>
         <item name="android:textColorHint">@color/text_secondary</item>
         <item name="android:background">@drawable/edittext_background</item>

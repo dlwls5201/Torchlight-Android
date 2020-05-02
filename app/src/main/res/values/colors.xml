@@ -14,18 +14,13 @@
     <color name="main_500">#ff7a4f</color>
     <color name="main_700">#ff673f</color>
 
-    <color name="right_gray">#d8d8d8</color>
-    <color name="salmon">#ff8269</color>
-
     <color name="text_primary">#deffffff</color>
-    <color name="text_secondary">#99ffffff</color>
+    <color name="text_secondary">#a2a2a2</color>
     <color name="text_disabled">#61ffffff</color>
     <color name="text_button">@color/background</color>
 
     <color name="editText_bg">#202020</color>
 
     <color name="white">#fff</color>
-
-    <color name="item_card_background">#1e1e1e</color>
     <color name="top_bar_background">#1e1e1e</color>
 </resources>

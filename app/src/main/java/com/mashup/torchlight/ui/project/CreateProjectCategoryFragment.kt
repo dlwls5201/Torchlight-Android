@@ -1,50 +1,98 @@
 package com.mashup.torchlight.ui.project
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import com.mashup.torchlight.R
 import com.mashup.torchlight.databinding.FragmentCreateProjectCategoryBinding
+import com.mashup.torchlight.ext.toast
 import com.mashup.torchlight.ui.customview.itemselectorview.ItemSelectorData
+import com.mashup.torchlight.util.DLog
 import kotlinx.android.synthetic.main.fragment_create_project_category.*
+import kotlinx.android.synthetic.main.view_create_category_button.*
 
 class CreateProjectCategoryFragment :
     ProjectBaseFragment<FragmentCreateProjectCategoryBinding>(R.layout.fragment_create_project_category) {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    companion object {
 
+        fun newInstance() = CreateProjectCategoryFragment()
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return super.onCreateView(inflater, container, savedInstanceState)
-    }
+    private val items = listOf(
+        ItemSelectorData(0, "건강 및 피트니스", null),
+        ItemSelectorData(1, "교육", null),
+        ItemSelectorData(2, "금융", null),
+        ItemSelectorData(3, "날씨", null),
+        ItemSelectorData(4, "네비게이션", null),
+        ItemSelectorData(5, "뉴스", null),
+        ItemSelectorData(6, "도서", null),
+        ItemSelectorData(7, "라이프스타일", null),
+        ItemSelectorData(8, "비즈니스", null),
+        ItemSelectorData(9, "사진 및 비디오", null),
+        ItemSelectorData(10, "생산성", null),
+        ItemSelectorData(11, "소셜 네트워킹", null),
+        ItemSelectorData(12, "쇼핑", null),
+        ItemSelectorData(13, "스포츠", null),
+        ItemSelectorData(14, "어린이", null),
+        ItemSelectorData(15, "엔터테이먼트", null),
+        ItemSelectorData(16, "여행", null),
+        ItemSelectorData(17, "유틸리티", null),
+        ItemSelectorData(18, "음식 및 음료", null),
+        ItemSelectorData(19, "음악", null),
+        ItemSelectorData(20, "의학", null),
+        ItemSelectorData(21, "잡지 및 신문", null),
+        ItemSelectorData(22, "참고", null),
+        ItemSelectorData(23, "AR", null)
+    )
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        val dataList = ArrayList<ItemSelectorData>()
-        dataList.add(ItemSelectorData(0, "Te111st", null))
-        dataList.add(ItemSelectorData(1, "Wow1", null))
-        dataList.add(ItemSelectorData(2, "Wow2", null))
-        selector_project_selelct_category.setItemList(dataList)
-        dataList.add(ItemSelectorData(3, "Wow3", null))
-        dataList.add(ItemSelectorData(4, "Wow4", null))
-        dataList.add(ItemSelectorData(5, "Wo5w", null))
-        dataList.add(ItemSelectorData(6, "Wo5w", null))
-        dataList.add(ItemSelectorData(7, "Wo5w", null))
-        dataList.add(ItemSelectorData(8, "Wo5w", null))
-        dataList.add(ItemSelectorData(9, "Wo5w", null))
-        dataList.add(ItemSelectorData(10, "o5w", null))
-        dataList.add(ItemSelectorData(11, "o5w", null))
-        dataList.add(ItemSelectorData(12, "W5w", null))
-        selector_project_category.setItemList(dataList)
-
+        initAllCategory()
+        initButton()
+        setCallbackAdapter()
     }
 
+    override fun initData() {
+        DLog.d("categories : ${projectVM.resultProjectModel.categories}")
+        val selectedCategorises = projectVM.resultProjectModel.categories
+        list_all_category.setSelectCategories(selectedCategorises)
+        list_selected_category.setItemList(selectedCategorises)
+    }
+
+    private fun initAllCategory() {
+        list_all_category.setItemList(items)
+    }
+
+    private fun initButton() {
+        btnCreateProjectNext.setOnClickListener {
+            val selectedCategory = list_all_category.getSelectedItemList()
+            if (selectedCategory.isEmpty()) {
+                requireContext().toast("적어도 한개 카테고리를 설정해주세요.")
+            } else {
+                projectVM.setCategory(selectedCategory)
+                projectVM.goNextStep()
+            }
+        }
+    }
+
+    private fun setCallbackAdapter() {
+        list_all_category.setItemCallback {
+            if (it.isSelected) {
+                addItemSelectedList(it)
+            } else {
+                removeItemSelectedList(it)
+            }
+        }
+        list_selected_category.setRemoveItemCallback {
+            list_all_category.replaceItem(it.copy(isSelected = false))
+        }
+    }
+
+    private fun addItemSelectedList(item: ItemSelectorData) {
+        list_selected_category.addItem(item)
+    }
+
+    private fun removeItemSelectedList(item: ItemSelectorData) {
+        list_selected_category.removeItemById(item.id)
+    }
 }
