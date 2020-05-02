@@ -5,60 +5,44 @@
 
     <data>
 
-        <import type="android.view.View" />
+        <import type="com.mashup.torchlight.ui.project.viewmodel.ProjectViewModel.PagePos" />
 
         <variable
             name="projectVM"
-            type="com.mashup.torchlight.viewmodel.ProjectViewModel" />
-
-        <variable
-            name="position"
-            type="Integer" />
-
+            type="com.mashup.torchlight.ui.project.viewmodel.ProjectViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/background"
+        android:orientation="vertical"
         tools:context=".ui.project.CreateProjectActivity">
 
         <include
-            android:id="@+id/action_bar_title"
-            layout="@layout/item_globar_top"
-            android:layout_width="0dp"
+            android:id="@+id/view_top_bar"
+            layout="@layout/item_global_top"
+            android:layout_width="match_parent"
             android:layout_height="@dimen/global_top_bar_hight"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:title="@{projectVM.data.title}" />
+            app:layout_constraintTop_toTopOf="parent" />
 
-
-        <include
-            android:id="@+id/item_create_project_msg"
-            layout="@layout/item_create_project_msg"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/create_project_start_margin"
-            android:layout_marginEnd="@dimen/create_project_start_margin"
-            android:layout_marginTop="26dp"
-            app:explicate="@{projectVM.getSubTitle(position).explicate}"
-            app:subtitle="@{projectVM.getSubTitle(position).sub_title}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/action_bar_title" />
+        <ProgressBar
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:max="@{PagePos.values().length}"
+            android:progress="@{projectVM.barStep}"
+            android:progressDrawable="@drawable/progress_main_400"
+            tools:max="6"
+            tools:progress="1" />
 
         <FrameLayout
             android:id="@+id/fragment_container"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/item_create_project_msg" />
+            android:layout_height="0dp"
+            android:layout_weight="1" />
 
-        <include
-            android:id="@+id/btnBottom"
-            layout="@layout/item_btn_bottom"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:projectVM="@{projectVM}" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 </layout>

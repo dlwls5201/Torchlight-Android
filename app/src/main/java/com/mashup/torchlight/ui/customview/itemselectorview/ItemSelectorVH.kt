@@ -11,13 +11,15 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.view_item_selector_item.view.*
 
 class ItemSelectorVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    val bgShape = GradientDrawable()
-    val removeShape = GradientDrawable()
+    private val bgShape = GradientDrawable()
+    private val removeShape = GradientDrawable()
+
     fun bind(
         data: ItemSelectorData,
         style: ItemSelectorStyle,
         onItemClicked: (id: Int) -> Unit,
-        onRemoveClicked: (id: Int) -> Unit
+        onRemoveClicked: (id: Int) -> Unit,
+        removeItemCallback: ((data: ItemSelectorData) -> Unit)? = null
     ) {
         val tv = itemView.txt
         val tvBottom = itemView.txtBottom
@@ -46,7 +48,6 @@ class ItemSelectorVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
         img.setColorFilter(if (data.isSelected) style.selectedIconColor else style.deselectedIconColor)
         img.layoutParams.width = style.iconSize
 
-
         // BG
         bgShape.setColor(if (data.isSelected) style.selectedColor else style.deselectedColor)
         bgShape.setStroke(style.borderThickness, style.borderColor)
@@ -71,7 +72,12 @@ class ItemSelectorVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
         wrapper.gravity = Gravity.CENTER_VERTICAL
 
         // Click Listener
-        itemView.setOnClickListener { onItemClicked(data.id) }
-        remove.setOnClickListener { onRemoveClicked(data.id) }
+        itemView.setOnClickListener {
+            onItemClicked(data.id)
+        }
+        remove.setOnClickListener {
+            removeItemCallback?.invoke(data)
+            onRemoveClicked(data.id)
+        }
     }
 }

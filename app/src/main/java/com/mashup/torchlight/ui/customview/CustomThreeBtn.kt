@@ -115,12 +115,13 @@ class CustomThreeBtn : LinearLayout {
             2 -> rb = rb3
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            rb.background.setTint(context.resources.getColor(R.color.main_400))
+            //item_card_background 전체가 바뀌브로 삭제 하겠습니다.
+            //rb.background.setTint(context.resources.getColor(R.color.main_400))
             rb.setTextColor(Color.BLACK)
         }
     }
 
-    fun getCheckId(): String {
-        return checkId.toString()
+    fun getCheckId(): Int {
+        return checkId
     }
 }

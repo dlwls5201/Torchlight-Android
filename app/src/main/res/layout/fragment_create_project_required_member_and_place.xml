@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="planer"
+            type="com.mashup.torchlight.ui.project.model.ProjectModel.Member.PLANNER" />
+
+        <variable
+            name="client"
+            type="com.mashup.torchlight.ui.project.model.ProjectModel.Member.CLIENT" />
+
+        <variable
+            name="server"
+            type="com.mashup.torchlight.ui.project.model.ProjectModel.Member.SERVER" />
+
+        <variable
+            name="designer"
+            type="com.mashup.torchlight.ui.project.model.ProjectModel.Member.DESIGNER" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/create_project_start_margin"
+                android:layout_marginEnd="@dimen/create_project_start_margin"
+                android:orientation="vertical"
+                android:paddingBottom="16dp">
+
+                <TextView
+                    style="@style/TitleSingleLine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="26dp"
+                    android:text="모집인원과 지역을 설정해주세요." />
+
+                <TextView
+                    style="@style/SmallMultiLine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:lineSpacingExtra="3sp"
+                    android:text="열정은 어쩌구저쩌구 도움말 텍스트에요. 아마 이 정도 길이면 되지 않을까 싶은데… "
+                    android:textColor="@color/text_secondary" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="모집인원"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:text="@{@string/project_all_member(planer.joinedMember + client.joinedMember + server.joinedMember + designer.joinedMember)}"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="14sp"
+                            tools:text="총 인원 8명 " />
+
+                    </RelativeLayout>
+
+                    <include
+                        android:id="@+id/view_item_need_job_planer"
+                        layout="@layout/item_need_job"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/create_project_start_margin"
+                        bind:member="@{planer}" />
+
+                    <include
+                        android:id="@+id/view_item_need_job_client"
+                        layout="@layout/item_need_job"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/create_project_start_margin"
+                        bind:member="@{client}" />
+
+                    <include
+                        android:id="@+id/view_item_need_job_server"
+                        layout="@layout/item_need_job"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/create_project_start_margin"
+                        bind:member="@{server}" />
+
+                    <include
+                        android:id="@+id/view_item_need_job_designer"
+                        layout="@layout/item_need_job"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/create_project_start_margin"
+                        bind:member="@{designer}" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:letterSpacing="-0.02"
+                        android:lineSpacingExtra="3sp"
+                        android:text="프로젝트 지역"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tv_create_project_required_member_and_place_area"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/create_project_start_margin"
+                        android:background="@drawable/item_card_background"
+                        android:backgroundTint="#202020"
+                        android:gravity="center_horizontal"
+                        android:letterSpacing="-0.02"
+                        android:lineSpacingExtra="3sp"
+                        android:padding="15dp"
+                        android:text="서울 강남역"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+        <include layout="@layout/view_create_category_button" />
+
+    </LinearLayout>
+</layout>

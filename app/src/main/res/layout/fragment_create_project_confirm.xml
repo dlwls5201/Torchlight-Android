@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.mashup.torchlight.ui.project.model.ProjectModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="32dp">
+
+                <TextView
+                    style="@style/TitleSingleLine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/create_project_start_margin"
+                    android:layout_marginTop="26dp"
+                    android:layout_marginEnd="@dimen/create_project_start_margin"
+                    android:text="입력하신 정보를 확인해주세요." />
+
+                <TextView
+                    style="@style/SmallMultiLine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/create_project_start_margin"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="@dimen/create_project_start_margin"
+                    android:lineSpacingExtra="3sp"
+                    android:text="열정은 어쩌구저쩌구 도움말 텍스트에요. 아마 이 정도 길이면 되지 않을까 싶은데…"
+                    android:textColor="@color/text_secondary" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
+                    android:layout_marginTop="32dp"
+                    android:background="@color/white" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/create_project_start_margin"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="@dimen/create_project_start_margin"
+                    android:orientation="vertical">
+
+                    <!-- platform -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:tint="@color/white"
+                            bind:setPlatformImage="@{model.platform}"
+                            tools:src="@drawable/ic_android" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="@{model.platform.name()}"
+                            android:textColor="@color/text_primary"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            tools:text="Android" />
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/TitleSingleLine"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@{model.title}"
+                        tools:text="Torchlight iOS 앱 프로젝트" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="11dp"
+                        android:lineSpacingExtra="2dp"
+                        android:text="@{model.summary}"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="16sp"
+                        tools:text="사이드 프로젝트 모집 플랫폼 Torchlight의 iOS 앱 개발을 위한 프로젝트입니다." />
+
+                    <com.mashup.torchlight.ui.customview.itemselectorview.ItemSelectorView
+                        android:id="@+id/list_selected_category"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/create_project_start_margin"
+                        app:border_color="@android:color/transparent"
+                        app:deselected_color="@color/editText_bg"
+                        app:deselected_text_color="@color/text_primary"
+                        app:display_type="text"
+                        app:item_margin="4dp"
+                        app:item_padding="12dp"
+                        app:multi_selectable="false"
+                        app:radius="8dp"
+                        app:removable="false"
+                        app:remove_btn_bg_color="@color/text_disabled"
+                        app:remove_btn_border_color="@android:color/transparent"
+                        app:remove_btn_x_color="@color/black"
+                        app:scrollable="false"
+                        app:selected_color="@color/editText_bg"
+                        app:selected_text_color="@color/text_primary"
+                        app:text_size="12sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:text="기본 정보"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="14sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:orientation="horizontal">
+
+                        <include
+                            layout="@layout/item_project_info"
+                            android:layout_width="0dp"
+                            android:layout_height="115dp"
+                            android:layout_marginEnd="16dp"
+                            android:layout_weight="1"
+                            bind:drawable="@{@drawable/ic_place}"
+                            bind:info="@{model.area}"
+                            bind:title="@{@string/project_area}" />
+
+                        <include
+                            layout="@layout/item_project_info"
+                            android:layout_width="0dp"
+                            android:layout_height="115dp"
+                            android:layout_weight="1"
+                            bind:drawable="@{@drawable/ic_passion}"
+                            bind:info="@{model.passion.name()}"
+                            bind:title="@{@string/passion}" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="32dp"
+                        android:text="프로젝트 기간"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="14sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:orientation="horizontal">
+
+                        <include
+                            layout="@layout/item_project_info"
+                            android:layout_width="0dp"
+                            android:layout_height="115dp"
+                            android:layout_marginEnd="16dp"
+                            android:layout_weight="1"
+                            bind:drawable="@{@drawable/ic_scale}"
+                            bind:info="@{model.scale.name()}"
+                            bind:title="@{@string/scale}" />
+
+                        <include
+                            layout="@layout/item_project_info"
+                            android:layout_width="0dp"
+                            android:layout_height="115dp"
+                            android:layout_weight="1"
+                            bind:drawable="@{@drawable/ic_start}"
+                            bind:info="@{model.startDate}"
+                            bind:title="@{@string/start_expected}" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:text="프로젝트 인원"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="14sp" />
+
+                    <include
+                        layout="@layout/item_need_job"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/create_project_start_margin"
+                        bind:member="@{model.planer}" />
+
+                    <include
+                        layout="@layout/item_need_job"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/create_project_start_margin"
+                        bind:member="@{model.client}" />
+
+                    <include
+                        layout="@layout/item_need_job"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/create_project_start_margin"
+                        bind:member="@{model.server}" />
+
+                    <include
+                        layout="@layout/item_need_job"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/create_project_start_margin"
+                        bind:member="@{model.designer}" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="32dp"
+                        android:text="프로젝트 상세 설명"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:lineSpacingExtra="2dp"
+                        android:text="@{model.description}"
+                        android:textColor="@color/text_primary"
+                        android:textSize="16sp"
+                        tools:text="있으며, 어디 심장의 같으며, 군영과 피부가 있는 황금시대다. 내는 보배를 낙원을 인간이 부패뿐이다. 능히 오아이스도 목숨을 동산에는 할지라도 그들의 아름다우냐? 남는 따뜻한 이는 무한한 속에서 것이다. 전인 장식하는 그러므로 하여도 끝까지 사막이다. 심장의 옷을 발휘하기 노래하며 청춘은 이것이다. 사랑의 이것은 가는 못할 사라지지 인류의 어디 오직 놀이 말이다. " />
+
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+        <include layout="@layout/view_create_category_button_complete" />
+    </LinearLayout>
+</layout>

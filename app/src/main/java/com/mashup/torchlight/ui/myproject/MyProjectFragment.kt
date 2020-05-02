@@ -4,15 +4,18 @@ import android.os.Bundle
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.mashup.torchlight.R
-import com.mashup.torchlight.adapter.MyProjectFragmentAdapter
 import com.mashup.torchlight.base.BaseFragment
 import com.mashup.torchlight.databinding.FragmentMyProjectBindingImpl
+import com.mashup.torchlight.ui.myproject.adapter.MyProjectFragmentAdapter
 import kotlinx.android.synthetic.main.fragment_my_project.*
 
 class MyProjectFragment : BaseFragment<FragmentMyProjectBindingImpl>(R.layout.fragment_my_project) {
 
     private val myProjectAdapter by lazy {
-        MyProjectFragmentAdapter(requireFragmentManager(), lifecycle)
+        MyProjectFragmentAdapter(
+            requireFragmentManager(),
+            lifecycle
+        )
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

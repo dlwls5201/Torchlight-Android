@@ -13,8 +13,7 @@ import com.mashup.torchlight.R
 
 class ItemSelectorView : RecyclerView {
 
-    private var displayStyle =
-        ItemSelectorStyle()
+    private var displayStyle = ItemSelectorStyle()
     private lateinit var itemSelectorAdapter: ItemSelectorAdapter
 
     constructor(context: Context) : super(context) {
@@ -61,6 +60,7 @@ class ItemSelectorView : RecyclerView {
         val primaryColor = context.resources.getColor(R.color.colorPrimary)
         val whiteColor = Color.WHITE
         val accentColor = context.resources.getColor(R.color.colorAccent)
+
         with(displayStyle) {
             isMultiSelectable =
                 attrTypedArr.getBoolean(R.styleable.ItemSelectorView_multi_selectable, false)
@@ -131,10 +131,10 @@ class ItemSelectorView : RecyclerView {
     fun addItem(idx: Int, data: ItemSelectorData) =
         itemSelectorAdapter.addItem(idx, data)
 
-    fun removeItem(idx: Int) =
-        itemSelectorAdapter.removeItem(idx)
+    fun removeItem(data: ItemSelectorData) =
+        itemSelectorAdapter.removeItem(data)
 
-    fun removeItemById(Id: Int) =
+    fun removeItemById(id: Int) =
         itemSelectorAdapter.removeItemById(id)
 
     fun clearItems() =
@@ -149,8 +149,27 @@ class ItemSelectorView : RecyclerView {
     fun getSelectedItemList(): ArrayList<ItemSelectorData> =
         itemSelectorAdapter.getSelectedItems()
 
+    fun setSelectCategories(categories: List<ItemSelectorData>) =
+        itemSelectorAdapter.setSelectCategories(categories)
+
     fun getItemList(): ArrayList<ItemSelectorData> =
         itemSelectorAdapter.itemList
+
+    fun setSelectedItemById(id: Int) {
+        itemSelectorAdapter.setItemSelectedById(id, true)
+    }
+
+    fun setItemCallback(callback: (data: ItemSelectorData) -> Unit) {
+        itemSelectorAdapter.itemCallback = callback
+    }
+
+    fun setRemoveItemCallback(callback: (data: ItemSelectorData) -> Unit) {
+        itemSelectorAdapter.removeItemCallback = callback
+    }
+
+    fun replaceItem(data: ItemSelectorData) {
+        itemSelectorAdapter.replaceItem(data)
+    }
 
     @Deprecated(
         "Adapter is handled in the view itself!",

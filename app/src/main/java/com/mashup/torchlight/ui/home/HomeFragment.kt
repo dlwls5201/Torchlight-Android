@@ -1,17 +1,17 @@
 package com.mashup.torchlight.ui.home
 
 import android.os.Bundle
-import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
+import android.view.ViewGroup
 import androidx.databinding.library.baseAdapters.BR
 import com.mashup.torchlight.R
 import com.mashup.torchlight.base.BaseFragment
 import com.mashup.torchlight.databinding.FragmentHomeBinding
 import com.mashup.torchlight.databinding.ItemProjectBinding
 import com.mashup.torchlight.ext.toast
-import com.mashup.torchlight.model.ProjectModel
 import com.mashup.torchlight.simplerecyclerview.SimpleRecyclerViewAdapter
+import com.mashup.torchlight.simplerecyclerview.SimpleViewHolder
+import com.mashup.torchlight.ui.customview.itemselectorview.ItemSelectorData
+import com.mashup.torchlight.ui.project.model.ProjectModel
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
@@ -20,111 +20,92 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         super.onActivityCreated(savedInstanceState)
 
         initButton()
-        initSpinner()
         setUpRecycleView()
     }
 
     private fun initButton() {
-
         btnFragmentHomeSearch.setOnClickListener {
-            requireContext().toast("검색 화면 이동")
-        }
-    }
-
-    private fun initSpinner() {
-
-        val items = arrayOf("아이템0", "아이템1", "아이템2", "아이템3", "아이템4")
-
-        val myAdapter =
-            ArrayAdapter(requireContext(), R.layout.item_spinner_filter, items)
-
-        spFragmentHomeFilter1.adapter = myAdapter
-        spFragmentHomeFilter1.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(
-                parent: AdapterView<*>,
-                view: View,
-                position: Int,
-                id: Long
-            ) {
-                when (position) {
-                    0 -> {
-
-                    }
-                    else -> {
-
-                    }
-                }
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>) {}
-        }
-
-        spFragmentHomeFilter2.adapter = myAdapter
-        spFragmentHomeFilter2.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(
-                parent: AdapterView<*>,
-                view: View,
-                position: Int,
-                id: Long
-            ) {
-                when (position) {
-                    0 -> {
-
-                    }
-                    else -> {
-
-                    }
-                }
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>) {}
+            requireContext().toast("준비중입니다.")
         }
     }
 
     private fun setUpRecycleView() {
-        val tempAdapter = object : SimpleRecyclerViewAdapter<ProjectModel, ItemProjectBinding>(
+        val testAdapter = object : SimpleRecyclerViewAdapter<ProjectModel, ItemProjectBinding>(
             layoutRes = R.layout.item_project,
-            bindingVariableId = BR.itemProject
-        ) {}
+            bindingVariableId = BR.model
+        ) {
+            override fun onCreateViewHolder(
+                parent: ViewGroup,
+                viewType: Int
+            ): SimpleViewHolder<ItemProjectBinding> {
+                return super.onCreateViewHolder(parent, viewType).apply {
 
-        with(binding.rvFragmentHomeProject) {
-            adapter = tempAdapter
+                }
+            }
         }
 
-        val items = mutableListOf(
+        with(binding.rvHomeProject) {
+            adapter = testAdapter
+        }
+
+        val testSample = listOf(
             ProjectModel(
-                name = "name1",
-                description = "description",
-                recruitmentCnt = 10,
-                tag = listOf()
+                passion = ProjectModel.Passion.ONE,
+                platform = ProjectModel.PlatformType.ANDROID,
+                desktop = ProjectModel.DesktopType.MACOS,
+                field = ProjectModel.FieldType.AI,
+                categories = listOf(
+                    ItemSelectorData(0, "취미1", null),
+                    ItemSelectorData(0, "취미2", null),
+                    ItemSelectorData(0, "취미3", null)
+                ),
+                scale = ProjectModel.ProjectScale.BIG,
+                planer = ProjectModel.Member.PLANNER(1, 3),
+                client = ProjectModel.Member.CLIENT(1, 3),
+                server = ProjectModel.Member.SERVER(1, 3),
+                designer = ProjectModel.Member.DESIGNER(2, 3),
+                area = "동작구",
+                title = "Torchlight 안드로이드",
+                summary = "안드로이드 개발을 해봐요",
+                description = "설명은 생략한다.",
+                phone = "01077255201"
             ),
             ProjectModel(
-                name = "name2",
-                description = "description",
-                recruitmentCnt = 10,
-                tag = listOf()
+                passion = ProjectModel.Passion.TWO,
+                platform = ProjectModel.PlatformType.IOS,
+                desktop = ProjectModel.DesktopType.LiNUX,
+                field = ProjectModel.FieldType.BLOCKCHAIN,
+                categories = listOf(ItemSelectorData(0, "IOS", null)),
+                scale = ProjectModel.ProjectScale.BIG,
+                planer = ProjectModel.Member.PLANNER(0, 3),
+                client = ProjectModel.Member.CLIENT(0, 3),
+                area = "동작구",
+                title = "Torchlight 안드로이드와 IOS",
+                summary = "사이드 프로젝트 모집 플랫폼 Torchlight의\n" +
+                        "iOS 앱 개발을 위한 프로젝트입니다.",
+                description = "설명은 생략한다.",
+                phone = "01077255201"
             ),
             ProjectModel(
-                name = "name3",
-                description = "description",
-                recruitmentCnt = 10,
-                tag = listOf()
-            ),
-            ProjectModel(
-                name = "name4",
-                description = "description",
-                recruitmentCnt = 10,
-                tag = listOf()
-            ),
-            ProjectModel(
-                name = "name5",
-                description = "description",
-                recruitmentCnt = 10,
-                tag = listOf()
+                passion = ProjectModel.Passion.THREE,
+                platform = ProjectModel.PlatformType.WEB,
+                desktop = ProjectModel.DesktopType.MACOS,
+                field = ProjectModel.FieldType.GAME,
+                categories = listOf(ItemSelectorData(0, "취미", null)),
+                scale = ProjectModel.ProjectScale.BIG,
+                planer = ProjectModel.Member.PLANNER(2, 3),
+                client = ProjectModel.Member.CLIENT(2, 3),
+                server = ProjectModel.Member.SERVER(2, 3),
+                designer = ProjectModel.Member.DESIGNER(2, 3),
+                area = "동작구",
+                title = "웹 안드로이드",
+                summary = "웹 개발을 해봐요",
+                description = "설명은 생략한다.",
+                phone = "01077255201"
             )
         )
 
-        tempAdapter.replaceAll(items)
+        testAdapter.replaceAll(testSample)
     }
 
     companion object {

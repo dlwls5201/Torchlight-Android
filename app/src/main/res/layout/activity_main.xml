@@ -5,9 +5,7 @@
 
     <data>
 
-        <variable
-            name="mainVM"
-            type="com.mashup.torchlight.ui.main.MainViewModel" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,10 +14,10 @@
         tools:context=".ui.main.MainActivity">
 
         <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/vpMain"
+            android:id="@+id/vp_main"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@+id/bnvMain"
+            app:layout_constraintBottom_toTopOf="@+id/btn_main"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -27,10 +25,10 @@
             app:layout_constraintVertical_bias="0.0" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bnvMain"
+            android:id="@+id/btn_main"
             android:layout_width="0dp"
             android:layout_height="56dp"
-            android:background="@color/black"
+            android:background="#343434"
             app:itemIconTint="@drawable/bottom_navigation_view_main_tint"
             app:itemTextColor="@drawable/bottom_navigation_view_main_tint"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -38,12 +36,23 @@
             app:layout_constraintStart_toStartOf="parent"
             app:menu="@menu/bottom_navigation_view_main_menu" />
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <FrameLayout
+            android:id="@+id/btn_main_create_project"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
             android:layout_margin="@dimen/create_project_start_margin"
-            app:layout_constraintBottom_toTopOf="@+id/bnvMain"
-            app:layout_constraintEnd_toEndOf="parent" />
+            android:background="@drawable/bg_home_floating"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            app:layout_constraintBottom_toTopOf="@+id/btn_main"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_plus" />
+
+        </FrameLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
