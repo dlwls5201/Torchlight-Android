@@ -251,6 +251,9 @@
             </LinearLayout>
         </ScrollView>
 
-        <include layout="@layout/view_create_category_button_complete" />
+        <Button
+            android:id="@+id/btnCreateProjectComplete"
+            style="@style/TorchLightButtonGray"
+            android:text="@string/make_project" />
     </LinearLayout>
 </layout>

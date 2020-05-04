@@ -7,7 +7,6 @@ import com.mashup.torchlight.ext.toast
 import com.mashup.torchlight.ui.customview.itemselectorview.ItemSelectorData
 import com.mashup.torchlight.util.DLog
 import kotlinx.android.synthetic.main.fragment_create_project_category.*
-import kotlinx.android.synthetic.main.view_create_category_button.*
 
 class CreateProjectCategoryFragment :
     ProjectBaseFragment<FragmentCreateProjectCategoryBinding>(R.layout.fragment_create_project_category) {
@@ -64,7 +63,7 @@ class CreateProjectCategoryFragment :
     }
 
     private fun initButton() {
-        btnCreateProjectNext.setOnClickListener {
+        binding.btnCreateProjectNext.setOnClickListener {
             val selectedCategory = list_all_category.getSelectedItemList()
             if (selectedCategory.isEmpty()) {
                 requireContext().toast("적어도 한개 카테고리를 설정해주세요.")

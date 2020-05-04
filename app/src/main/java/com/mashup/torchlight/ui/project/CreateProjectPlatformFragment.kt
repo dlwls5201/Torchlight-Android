@@ -9,7 +9,6 @@ import com.mashup.torchlight.ui.customview.itemselectorview.ItemSelectorData
 import com.mashup.torchlight.ui.project.model.ProjectModel
 import com.mashup.torchlight.util.DLog
 import kotlinx.android.synthetic.main.fragment_create_project_platform.*
-import kotlinx.android.synthetic.main.view_create_category_button.*
 
 class CreateProjectPlatformFragment :
     ProjectBaseFragment<FragmentCreateProjectPlatformBinding>(R.layout.fragment_create_project_platform) {
@@ -46,7 +45,7 @@ class CreateProjectPlatformFragment :
 
     private fun initButton() {
 
-        btnCreateProjectNext.setOnClickListener {
+        binding.btnCreateProjectNext.setOnClickListener {
             val platformItems = selector_project_platform.getSelectedItemList()
 
             val desktopItems = selector_project_desktop.getSelectedItemList()

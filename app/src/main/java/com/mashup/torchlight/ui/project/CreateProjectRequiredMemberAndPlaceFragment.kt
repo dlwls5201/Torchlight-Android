@@ -6,7 +6,6 @@ import com.mashup.torchlight.databinding.FragmentCreateProjectRequiredMemberAndP
 import com.mashup.torchlight.ext.toast
 import com.mashup.torchlight.ui.project.bottomsheet.RequiredMemberBottomSheetDialog
 import com.mashup.torchlight.ui.project.model.ProjectModel
-import kotlinx.android.synthetic.main.view_create_category_button.*
 
 class CreateProjectRequiredMemberAndPlaceFragment :
     ProjectBaseFragment<FragmentCreateProjectRequiredMemberAndPlaceBinding>(R.layout.fragment_create_project_required_member_and_place) {
@@ -37,7 +36,7 @@ class CreateProjectRequiredMemberAndPlaceFragment :
             requireContext().toast("준비중입니다.")
         }
 
-        btnCreateProjectNext.setOnClickListener {
+        binding.btnCreateProjectNext.setOnClickListener {
             projectVM.setMembers(
                 ProjectModel.Member.PLANNER(1, 2),
                 ProjectModel.Member.CLIENT(1, 2),

@@ -5,7 +5,6 @@ import com.mashup.torchlight.R
 import com.mashup.torchlight.databinding.FragmentCreateProjectBasicInfoBinding
 import com.mashup.torchlight.ext.toast
 import kotlinx.android.synthetic.main.fragment_create_project_basic_info.*
-import kotlinx.android.synthetic.main.view_create_category_button.*
 
 class CreateProjectBasicInfoFragment :
     ProjectBaseFragment<FragmentCreateProjectBasicInfoBinding>(R.layout.fragment_create_project_basic_info) {
@@ -26,7 +25,7 @@ class CreateProjectBasicInfoFragment :
     }
 
     private fun initButton() {
-        btnCreateProjectNext.setOnClickListener {
+        binding.btnCreateProjectNext.setOnClickListener {
             val title = etCreateProjectBasicInfoTitle.text.toString()
             val summary = etCreateProjectBasicInfoSummary.text.toString()
             val description = etCreateProjectBasicInfoDescription.text.toString()

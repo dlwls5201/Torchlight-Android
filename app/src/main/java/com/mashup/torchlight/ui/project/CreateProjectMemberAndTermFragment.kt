@@ -8,7 +8,6 @@ import com.mashup.torchlight.ui.customview.CustomThreeBtn
 import com.mashup.torchlight.ui.project.model.ProjectModel
 import kotlinx.android.synthetic.main.fragment_create_project_member_and_term.*
 import kotlinx.android.synthetic.main.fragment_create_project_passion.btnSelectThree
-import kotlinx.android.synthetic.main.view_create_category_button.*
 
 class CreateProjectMemberAndTermFragment :
     ProjectBaseFragment<FragmentCreateProjectMemberAndTermBinding>(R.layout.fragment_create_project_member_and_term) {
@@ -56,7 +55,7 @@ class CreateProjectMemberAndTermFragment :
     }
 
     private fun initButton() {
-        btnCreateProjectNext.setOnClickListener {
+        binding.btnCreateProjectNext.setOnClickListener {
             if (btnSelectThree.getCheckId() > -1) {
                 val scale = when (btnSelectThree.getCheckId()) {
                     0 -> ProjectModel.ProjectScale.SMALL

@@ -1,6 +1,6 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/main_400</item>
         <item name="colorPrimaryDark">@color/black</item>
@@ -18,12 +18,7 @@
         <item name="android:windowBackground">@drawable/splash</item>
     </style>
 
-    <style name="AppDialogTheme" parent="Theme.AppCompat.Dialog">
-        <!--item name="colorAccent">@color/orange_base</item-->
-        <item name="android:windowMinWidthMinor">90%</item>
-    </style>
-
-    <style name="dialogTransparent" parent="AppDialogTheme">
+    <style name="dialogTransparent" parent="Theme.AppCompat.Dialog">
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowIsFloating">true</item>
@@ -32,6 +27,16 @@
 
     <style name="DefaultAppBarLayout" parent="Widget.Design.AppBarLayout">
         <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="TorchLightButtonGray" parent="@android:style/Widget.Material.Button">
+        <item name="android:textColor">#818181</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">56dp</item>
+        <item name="android:background">#343434</item>
+        <item name="android:textAllCaps">false</item>
     </style>
 
     <style name="TorchLightButtonPrimary" parent="@android:style/Widget.Material.Button">

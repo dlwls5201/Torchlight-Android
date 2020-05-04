@@ -7,7 +7,6 @@ import com.mashup.torchlight.databinding.FragmentCreateProjectPassionBinding
 import com.mashup.torchlight.ui.customview.CustomThreeBtn
 import com.mashup.torchlight.ui.project.model.ProjectModel
 import kotlinx.android.synthetic.main.fragment_create_project_passion.*
-import kotlinx.android.synthetic.main.view_create_category_button.*
 
 class CreateProjectPassionFragment :
     ProjectBaseFragment<FragmentCreateProjectPassionBinding>(R.layout.fragment_create_project_passion) {
@@ -40,6 +39,7 @@ class CreateProjectPassionFragment :
                 btnSelectThree.setCheckId(index)
                 setPassionText()
 
+                //sample image
                 val color = when (index) {
                     0 -> "#9988ff"
                     1 -> "#00ff00"
@@ -64,7 +64,7 @@ class CreateProjectPassionFragment :
     }
 
     private fun initButton() {
-        btnCreateProjectNext.setOnClickListener {
+        binding.btnCreateProjectNext.setOnClickListener {
             if (btnSelectThree.getCheckId() > -1) {
                 val passion = when (btnSelectThree.getCheckId()) {
                     0 -> ProjectModel.Passion.ONE

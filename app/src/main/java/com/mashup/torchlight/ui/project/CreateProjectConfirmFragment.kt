@@ -4,7 +4,6 @@ import android.app.Activity
 import android.os.Bundle
 import com.mashup.torchlight.R
 import com.mashup.torchlight.databinding.FragmentCreateProjectConfirmBinding
-import kotlinx.android.synthetic.main.view_create_category_button_complete.*
 
 class CreateProjectConfirmFragment :
     ProjectBaseFragment<FragmentCreateProjectConfirmBinding>(R.layout.fragment_create_project_confirm) {
@@ -28,7 +27,7 @@ class CreateProjectConfirmFragment :
     }
 
     private fun initButton() {
-        btnCreateProjectComplete.setOnClickListener {
+        binding.btnCreateProjectComplete.setOnClickListener {
             with(requireActivity()) {
                 setResult(Activity.RESULT_OK)
                 finish()

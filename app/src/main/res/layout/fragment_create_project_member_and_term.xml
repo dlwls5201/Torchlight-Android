@@ -84,7 +84,9 @@
                 tools:text="2019. 10. 31 토요일" />
         </LinearLayout>
 
-        <include layout="@layout/view_create_category_button" />
-
+        <Button
+            android:id="@+id/btnCreateProjectNext"
+            style="@style/TorchLightButtonGray"
+            android:text="@string/next_to" />
     </LinearLayout>
 </layout>

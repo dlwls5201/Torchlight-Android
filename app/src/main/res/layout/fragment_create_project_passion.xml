@@ -63,6 +63,11 @@
             android:layout_height="0dp"
             android:layout_weight="1" />
 
-        <include layout="@layout/view_create_category_button" />
+        <Button
+            android:id="@+id/btnCreateProjectNext"
+            style="@style/TorchLightButtonGray"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="@string/next_to" />
     </LinearLayout>
 </layout>
