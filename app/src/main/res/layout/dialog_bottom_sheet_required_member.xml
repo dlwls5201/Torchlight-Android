@@ -1,59 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="234dp"
-    android:background="@drawable/bottom_sheet_background"
-    android:orientation="vertical"
-    android:padding="16dp">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="현재 인원"
-        android:textColor="@color/text_secondary"
-        android:textSize="14sp" />
+    <data>
 
-    <RelativeLayout
-        android:id="@+id/btnRequiredMember"
+        <variable
+            name="memberVM"
+            type="com.mashup.torchlight.ui.project.viewmodel.ProjectMemberViewModel" />
+
+        <variable
+            name="member"
+            type="com.mashup.torchlight.ui.project.model.ProjectModel.Member" />
+    </data>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/button_gray_rad_8">
+        android:layout_height="234dp"
+        android:background="@drawable/bottom_sheet_background"
+        android:orientation="vertical"
+        android:padding="16dp">
 
         <TextView
-            style="@style/SmallSingleLine"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:textSize="14sp"
-            tools:text="1명" />
+            android:text="현재 인원"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp" />
 
-    </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/button_gray_rad_8"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="전체 인원"
-        android:textColor="@color/text_secondary"
-        android:textSize="14sp" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:onClick="@{() -> memberVM.removeJoinedMember(member)}"
+                android:src="@drawable/ic_toggle" />
 
-    <RelativeLayout
-        android:id="@+id/btnAllMember"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/button_gray_rad_8">
+            <TextView
+                style="@style/SmallSingleLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@{@string/project_member_person(memberVM.getLiveDataMember(member).joinedMember)}"
+                android:textSize="14sp"
+                tools:text="1명" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:adjustViewBounds="true"
+                android:onClick="@{() -> memberVM.addJoinedMember(member)}"
+                android:rotation="180"
+                android:src="@drawable/ic_toggle" />
+
+        </RelativeLayout>
 
         <TextView
-            style="@style/SmallSingleLine"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:textSize="14sp"
-            tools:text="2명" />
+            android:layout_marginTop="30dp"
+            android:text="전체 인원"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp" />
 
-    </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/button_gray_rad_8"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
 
-</LinearLayout>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:onClick="@{() -> memberVM.removeRequiredMember(member)}"
+                android:src="@drawable/ic_toggle" />
+
+            <TextView
+                style="@style/SmallSingleLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@{@string/project_member_person(memberVM.getLiveDataMember(member).requiredMember)}"
+                android:textSize="14sp"
+                tools:text="2명" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:adjustViewBounds="true"
+                android:onClick="@{() -> memberVM.addRequiredMember(member)}"
+                android:rotation="180"
+                android:src="@drawable/ic_toggle" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</layout>

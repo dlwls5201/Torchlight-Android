@@ -98,6 +98,7 @@
     <string name="project_sample_content">한 줄 설명</string>
     <string name="project_all_member">총 인원 %d명</string>
     <string name="project_joined_and_required_member">%d/%d명</string>
+    <string name="project_member_person">%d명</string>
 
 
 </resources>

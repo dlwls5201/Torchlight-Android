@@ -50,7 +50,7 @@
 
 
             <TextView
-                android:id="@+id/tvCreateProjectMemberAndTermDescription"
+                android:id="@+id/tvCreateProjectScaleAndTermDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -71,7 +71,7 @@
                 android:textSize="14sp" />
 
             <TextView
-                android:id="@+id/tvCreateProjectMemberAndTermDate"
+                android:id="@+id/tvCreateProjectScaleAndTermDate"
                 style="@style/SmallSingleLine"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

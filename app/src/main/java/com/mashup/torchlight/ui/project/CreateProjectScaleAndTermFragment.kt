@@ -2,19 +2,19 @@ package com.mashup.torchlight.ui.project
 
 import android.os.Bundle
 import com.mashup.torchlight.R
-import com.mashup.torchlight.databinding.FragmentCreateProjectMemberAndTermBinding
+import com.mashup.torchlight.databinding.FragmentCreateProjectScaleAndTermBinding
 import com.mashup.torchlight.ext.toast
 import com.mashup.torchlight.ui.customview.CustomThreeBtn
 import com.mashup.torchlight.ui.project.model.ProjectModel
-import kotlinx.android.synthetic.main.fragment_create_project_member_and_term.*
 import kotlinx.android.synthetic.main.fragment_create_project_passion.btnSelectThree
+import kotlinx.android.synthetic.main.fragment_create_project_scale_and_term.*
 
-class CreateProjectMemberAndTermFragment :
-    ProjectBaseFragment<FragmentCreateProjectMemberAndTermBinding>(R.layout.fragment_create_project_member_and_term) {
+class CreateProjectScaleAndTermFragment :
+    ProjectBaseFragment<FragmentCreateProjectScaleAndTermBinding>(R.layout.fragment_create_project_scale_and_term) {
 
     companion object {
 
-        fun newInstance() = CreateProjectMemberAndTermFragment()
+        fun newInstance() = CreateProjectScaleAndTermFragment()
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -29,7 +29,7 @@ class CreateProjectMemberAndTermFragment :
         btnSelectThree.setCheckId(ordinal)
 
         val startDate = projectVM.resultProjectModel.startDate
-        tvCreateProjectMemberAndTermDate.text = startDate
+        tvCreateProjectScaleAndTermDate.text = startDate
 
         setTermText()
     }
@@ -51,7 +51,7 @@ class CreateProjectMemberAndTermFragment :
             2 -> "장시간 프로젝트를 진행합니다."
             else -> ""
         }
-        tvCreateProjectMemberAndTermDescription.text = term
+        tvCreateProjectScaleAndTermDescription.text = term
     }
 
     private fun initButton() {
@@ -64,12 +64,12 @@ class CreateProjectMemberAndTermFragment :
                     else -> ProjectModel.ProjectScale.SMALL
                 }
                 projectVM.setProjectScale(scale)
-                projectVM.setStartDate(tvCreateProjectMemberAndTermDate.text.toString())
+                projectVM.setStartDate(tvCreateProjectScaleAndTermDate.text.toString())
                 projectVM.goNextStep()
             }
         }
 
-        tvCreateProjectMemberAndTermDate.setOnClickListener {
+        tvCreateProjectScaleAndTermDate.setOnClickListener {
             requireContext().toast("준비중입니다.")
         }
     }

@@ -79,10 +79,10 @@ class ProjectViewModel : BaseViewModel() {
     }
 
     fun setMembers(
-        planer: ProjectModel.Member.PLANNER,
-        client: ProjectModel.Member.CLIENT,
-        server: ProjectModel.Member.SERVER,
-        designer: ProjectModel.Member.DESIGNER
+        planer: ProjectModel.Member,
+        client: ProjectModel.Member,
+        server: ProjectModel.Member,
+        designer: ProjectModel.Member
     ) {
         resultProjectModel = resultProjectModel.copy(
             planer = planer,
@@ -116,10 +116,10 @@ class ProjectViewModel : BaseViewModel() {
             CreateProjectCategoryFragment.newInstance()
         }
         PagePos.TERM.pos -> {
-            CreateProjectMemberAndTermFragment.newInstance()
+            CreateProjectScaleAndTermFragment.newInstance()
         }
         PagePos.PLACE.pos -> {
-            CreateProjectRequiredMemberAndPlaceFragment.newInstance()
+            CreateProjectMemberAndPlaceFragment.newInstance()
         }
         PagePos.BASICINFO.pos -> {
             CreateProjectBasicInfoFragment.newInstance()

@@ -4,22 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
-            name="planer"
-            type="com.mashup.torchlight.ui.project.model.ProjectModel.Member.PLANNER" />
-
-        <variable
-            name="client"
-            type="com.mashup.torchlight.ui.project.model.ProjectModel.Member.CLIENT" />
-
-        <variable
-            name="server"
-            type="com.mashup.torchlight.ui.project.model.ProjectModel.Member.SERVER" />
-
-        <variable
-            name="designer"
-            type="com.mashup.torchlight.ui.project.model.ProjectModel.Member.DESIGNER" />
+            name="memberVM"
+            type="com.mashup.torchlight.ui.project.viewmodel.ProjectMemberViewModel" />
     </data>
 
     <LinearLayout
@@ -77,7 +64,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
-                            android:text="@{@string/project_all_member(planer.joinedMember + client.joinedMember + server.joinedMember + designer.joinedMember)}"
+                            android:text="@{@string/project_all_member(memberVM.planer.joinedMember + memberVM.client.joinedMember + memberVM.server.joinedMember + memberVM.designer.joinedMember)}"
                             android:textColor="@color/text_secondary"
                             android:textSize="14sp"
                             tools:text="총 인원 8명 " />
@@ -90,7 +77,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/create_project_start_margin"
-                        bind:member="@{planer}" />
+                        bind:member="@{memberVM.planer}" />
 
                     <include
                         android:id="@+id/view_item_need_job_client"
@@ -98,7 +85,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/create_project_start_margin"
-                        bind:member="@{client}" />
+                        bind:member="@{memberVM.client}" />
 
                     <include
                         android:id="@+id/view_item_need_job_server"
@@ -106,7 +93,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/create_project_start_margin"
-                        bind:member="@{server}" />
+                        bind:member="@{memberVM.server}" />
 
                     <include
                         android:id="@+id/view_item_need_job_designer"
@@ -114,7 +101,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/create_project_start_margin"
-                        bind:member="@{designer}" />
+                        bind:member="@{memberVM.designer}" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -133,7 +120,7 @@
                         android:textSize="14sp" />
 
                     <TextView
-                        android:id="@+id/tv_create_project_required_member_and_place_area"
+                        android:id="@+id/tv_create_project_member_and_place_area"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"

@@ -5,20 +5,34 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.mashup.torchlight.R
-import com.mashup.torchlight.ext.toast
-import kotlinx.android.synthetic.main.dialog_bottom_sheet_required_member.*
+import com.mashup.torchlight.databinding.DialogBottomSheetRequiredMemberBinding
+import com.mashup.torchlight.ui.project.model.ProjectModel
+import com.mashup.torchlight.ui.project.viewmodel.ProjectMemberViewModel
 
 
-class RequiredMemberBottomSheetDialog : BottomSheetDialogFragment() {
+class RequiredMemberBottomSheetDialog(
+    private val projectMemberVM: ProjectMemberViewModel,
+    private val member: ProjectModel.Member
+) : BottomSheetDialogFragment() {
+
+    private lateinit var binding: DialogBottomSheetRequiredMemberBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.dialog_bottom_sheet_required_member, container, false)
+        binding = DataBindingUtil.inflate(
+            inflater,
+            R.layout.dialog_bottom_sheet_required_member,
+            container,
+            false
+        )
+        binding.lifecycleOwner = viewLifecycleOwner
+        return binding.root
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -28,13 +42,8 @@ class RequiredMemberBottomSheetDialog : BottomSheetDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        btnRequiredMember.setOnClickListener {
-            requireContext().toast("준비중입니다.")
-        }
-
-        btnAllMember.setOnClickListener {
-            requireContext().toast("준비중입니다.")
-        }
+        binding.memberVM = projectMemberVM
+        binding.member = member
     }
+
 }
