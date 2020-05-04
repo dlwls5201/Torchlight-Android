@@ -33,7 +33,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
                 viewType: Int
             ): SimpleViewHolder<ItemProjectBinding> {
                 return super.onCreateViewHolder(parent, viewType).apply {
-
+                    //TODO 상세 페이지 작업
+                    itemView.setOnClickListener {
+                        itemView.context?.toast(getItem(adapterPosition).toString())
+                    }
                 }
             }
         }

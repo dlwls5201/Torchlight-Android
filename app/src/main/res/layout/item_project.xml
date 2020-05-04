@@ -11,87 +11,94 @@
             type="com.mashup.torchlight.ui.project.model.ProjectModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="@dimen/item_project_height"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/item_card_background"
-        android:padding="@dimen/item_project_padding">
+        android:foreground="?attr/selectableItemBackground">
 
-        <ImageView
-            android:id="@+id/iv_item_project_platform_icon"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:src="@drawable/ic_android"
-            android:tint="@color/white"
-            bind:setPlatformImage="@{model.platform}"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{@string/required_member(model.planer.joinedMember + model.client.joinedMember + model.server.joinedMember + model.designer.joinedMember, model.planer.requiredMember + model.client.requiredMember + model.server.requiredMember + model.designer.requiredMember)}"
-            android:textSize="14sp"
-            android:textColor="@color/main_400"
-            app:layout_constraintBottom_toBottomOf="@+id/iv_item_project_platform_icon"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/iv_item_project_platform_icon"
-            tools:text="3 / 6 모집중" />
-
-        <TextView
-            android:id="@+id/tv_item_project_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:singleLine="true"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:text="@{model.title}"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Torchlight 안드로이드 앱" />
-
-        <TextView
-            android:id="@+id/tv_item_project_summary"
-            style="@style/SmallMultiLine"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:lineSpacingExtra="4dp"
-            android:maxLines="2"
-            android:text="@{model.summary}"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_item_project_title"
-            tools:text="사이드 프로젝트 모집 플랫폼 Torchlight의 iOS 앱 개발을 위한 프로젝트입니다." />
-
-        <com.mashup.torchlight.ui.customview.itemselectorview.ItemSelectorView
-            android:id="@+id/list_selected_category"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            app:border_color="@android:color/transparent"
-            app:deselected_color="#2e2e2e"
-            app:deselected_text_color="@color/text_primary"
-            app:display_type="text"
-            app:item_margin="4dp"
-            app:item_padding="12dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_item_project_summary"
-            app:multi_selectable="false"
-            app:radius="8dp"
-            app:removable="false"
-            app:remove_btn_bg_color="@color/text_disabled"
-            app:remove_btn_border_color="@android:color/transparent"
-            app:remove_btn_x_color="@color/black"
-            app:scrollable="false"
-            app:selected_color="@color/editText_bg"
-            app:selected_text_color="@color/text_primary"
-            app:text_size="12sp"
-            bind:setItemList="@{model.categories}" />
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/item_card_background"
+            android:minHeight="@dimen/item_project_height"
+            android:padding="@dimen/item_project_padding">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageView
+                android:id="@+id/iv_item_project_platform_icon"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/ic_android"
+                android:tint="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                bind:setPlatformImage="@{model.platform}" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{@string/required_member(model.planer.joinedMember + model.client.joinedMember + model.server.joinedMember + model.designer.joinedMember, model.planer.requiredMember + model.client.requiredMember + model.server.requiredMember + model.designer.requiredMember)}"
+                android:textColor="@color/main_400"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_item_project_platform_icon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/iv_item_project_platform_icon"
+                tools:text="3 / 6 모집중" />
+
+            <TextView
+                android:id="@+id/tv_item_project_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:singleLine="true"
+                android:text="@{model.title}"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Torchlight 안드로이드 앱" />
+
+            <TextView
+                android:id="@+id/tv_item_project_summary"
+                style="@style/SmallMultiLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:lineSpacingExtra="4dp"
+                android:maxLines="2"
+                android:text="@{model.summary}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_item_project_title"
+                tools:text="사이드 프로젝트 모집 플랫폼 Torchlight의 iOS 앱 개발을 위한 프로젝트입니다." />
+
+            <com.mashup.torchlight.ui.customview.itemselectorview.ItemSelectorView
+                android:id="@+id/list_selected_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:border_color="@android:color/transparent"
+                app:deselected_color="#2e2e2e"
+                app:deselected_text_color="@color/text_primary"
+                app:display_type="text"
+                app:item_margin="4dp"
+                app:item_padding="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_item_project_summary"
+                app:multi_selectable="false"
+                app:radius="8dp"
+                app:removable="false"
+                app:remove_btn_bg_color="@color/text_disabled"
+                app:remove_btn_border_color="@android:color/transparent"
+                app:remove_btn_x_color="@color/black"
+                app:scrollable="false"
+                app:selected_color="@color/editText_bg"
+                app:selected_text_color="@color/text_primary"
+                app:text_size="12sp"
+                bind:setItemList="@{model.categories}" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </FrameLayout>
 </layout>
