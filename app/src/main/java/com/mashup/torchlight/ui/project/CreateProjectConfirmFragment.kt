@@ -2,6 +2,7 @@ package com.mashup.torchlight.ui.project
 
 import android.app.Activity
 import android.os.Bundle
+import androidx.lifecycle.Observer
 import com.mashup.torchlight.R
 import com.mashup.torchlight.databinding.FragmentCreateProjectConfirmBinding
 
@@ -16,6 +17,7 @@ class CreateProjectConfirmFragment :
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        initObserve()
         initButton()
     }
 
@@ -26,12 +28,18 @@ class CreateProjectConfirmFragment :
         binding.listSelectedCategory.setItemList(selectedCategorises)
     }
 
-    private fun initButton() {
-        binding.btnCreateProjectComplete.setOnClickListener {
+    private fun initObserve() {
+        projectVM.complete.observe(viewLifecycleOwner, Observer {
             with(requireActivity()) {
                 setResult(Activity.RESULT_OK)
                 finish()
             }
+        })
+    }
+
+    private fun initButton() {
+        binding.btnCreateProjectComplete.setOnClickListener {
+            projectVM.addProject()
         }
     }
 }

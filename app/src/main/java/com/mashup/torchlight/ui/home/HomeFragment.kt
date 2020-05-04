@@ -46,7 +46,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         initObserve()
         initButton()
         setUpRecycleView()
-        homeViewModel.loadData()
+        loadData()
     }
 
     private fun initObserve() {
@@ -69,5 +69,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         with(binding.rvHomeProject) {
             adapter = testAdapter
         }
+    }
+
+    fun loadData() {
+        homeViewModel.loadData()
     }
 }

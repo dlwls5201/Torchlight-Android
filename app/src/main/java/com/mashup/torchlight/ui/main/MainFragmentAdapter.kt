@@ -14,9 +14,13 @@ class MainFragmentAdapter(
     lifecycle: Lifecycle
 ) : FragmentStateAdapter(fragmentManager, lifecycle) {
 
+    private val homeFragment by lazy {
+        HomeFragment.newInstance()
+    }
+
     override fun createFragment(position: Int): Fragment {
         return when (position) {
-            MinaScreen.HOME.pos -> HomeFragment.newInstance()
+            MinaScreen.HOME.pos -> homeFragment
             MinaScreen.MY_PROJECT.pos -> MyProjectFragment.newInstance()
             MinaScreen.NOTIFICATION.pos -> NotificationsFragment.newInstance()
             MinaScreen.MY_PAGE.pos -> MyPageFragment.newInstance()
@@ -28,5 +32,9 @@ class MainFragmentAdapter(
 
     enum class MinaScreen(val pos: Int) {
         HOME(0), MY_PROJECT(1), NOTIFICATION(2), MY_PAGE(3)
+    }
+
+    fun reloadHomeFragment() {
+        homeFragment.loadData()
     }
 }

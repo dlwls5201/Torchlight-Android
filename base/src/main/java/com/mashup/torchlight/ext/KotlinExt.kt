@@ -20,7 +20,7 @@ inline fun <A, B, C, R> ifNotNull(a: A?, b: B?, c: C?, code: (A, B, C) -> R) {
     }
 }
 
-fun Context.toast(message: CharSequence): Toast = Toast
+fun Context.toast(message: CharSequence?): Toast = Toast
     .makeText(this, message, Toast.LENGTH_SHORT)
     .apply {
         show()

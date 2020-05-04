@@ -4,12 +4,17 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.mashup.torchlight.base.BaseFragment
 import com.mashup.torchlight.base.BaseViewModel
+import com.mashup.torchlight.ext.SingleLiveEvent
+import com.mashup.torchlight.repository.ProjectRepository
 import com.mashup.torchlight.ui.customview.itemselectorview.ItemSelectorData
 import com.mashup.torchlight.ui.project.*
 import com.mashup.torchlight.ui.project.model.ProjectModel
+import com.mashup.torchlight.ui.project.model.mapToEntity
 import com.mashup.torchlight.util.DLog
 
-class ProjectViewModel : BaseViewModel() {
+class ProjectViewModel(
+    private val projectRepository: ProjectRepository
+) : BaseViewModel() {
 
     enum class PagePos(val pos: Int) {
         PASSION(1),
@@ -26,6 +31,9 @@ class ProjectViewModel : BaseViewModel() {
 
     private val _nextFragment = MutableLiveData<BaseFragment<*>>()
     val nextFragment: LiveData<BaseFragment<*>> get() = _nextFragment
+
+    private val _complete = SingleLiveEvent<Boolean>()
+    val complete: LiveData<Boolean> get() = _complete
 
     var currentPos = PagePos.PASSION.pos
         private set
@@ -52,7 +60,6 @@ class ProjectViewModel : BaseViewModel() {
     }
 
     fun setPlatform(platform: String, desktop: String, field: String) {
-        DLog.d("platform : $platform , desktop : $desktop, field : $field")
         resultProjectModel = resultProjectModel.copy(
             platform = ProjectModel.PlatformType.valueOf(platform),
             desktop = ProjectModel.DesktopType.valueOf(desktop),
@@ -136,5 +143,17 @@ class ProjectViewModel : BaseViewModel() {
     private fun initProjectData() {
         currentPos = PagePos.PASSION.pos
         resultProjectModel = ProjectModel()
+    }
+
+    fun addProject() {
+        projectRepository.addProject(
+            resultProjectModel.mapToEntity()
+        ).subscribe({
+            _complete.value = true
+        }) {
+            _complete.value = false
+        }.also {
+            compositeDisposable.add(it)
+        }
     }
 }

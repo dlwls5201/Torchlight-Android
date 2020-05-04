@@ -46,7 +46,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main),
             title = "프로젝트 생성이\n완료되었습니다!",
             message = "프로젝트가 생성되었습니다. 새로운 멤버의 연락을 기다려보세요.",
             btnOk = "확인"
-        )
+        ).apply {
+            setPositoveButtonListener {
+                mainAdapter.reloadHomeFragment()
+            }
+        }
         dialog.show(supportFragmentManager, dialog.tag)
     }
 

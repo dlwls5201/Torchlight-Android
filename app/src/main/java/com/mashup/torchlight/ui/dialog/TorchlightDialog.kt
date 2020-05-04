@@ -55,13 +55,13 @@ class TorchlightDialog : DialogFragment() {
 
     private var positiveListener: (() -> Unit)? = null
 
-    fun positoveButtonListener(listener: () -> Unit) {
+    fun setPositoveButtonListener(listener: () -> Unit) {
         positiveListener = listener
     }
 
     private var negativeListener: (() -> Unit)? = null
 
-    fun negativeButtonListener(listener: () -> Unit) {
+    fun setNegativeButtonListener(listener: () -> Unit) {
         negativeListener = listener
     }
 

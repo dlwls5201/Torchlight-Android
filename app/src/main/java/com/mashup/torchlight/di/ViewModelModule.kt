@@ -10,6 +10,6 @@ val viewModelModule = module {
 
     viewModel { HomeViewModel(get()) }
 
-    viewModel { ProjectViewModel() }
+    viewModel { ProjectViewModel(get()) }
     viewModel { ProjectMemberViewModel() }
 }

@@ -4,6 +4,7 @@ import com.mashup.torchlight.composeDomain
 import com.mashup.torchlight.data.Category
 import com.mashup.torchlight.entity.ProjectEntity
 import com.mashup.torchlight.repository.ProjectRepository
+import io.reactivex.Completable
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -79,8 +80,15 @@ class MockProjectRepoImpl : ProjectRepository {
 
     override fun getProjects(): Single<List<ProjectEntity>> {
         return Single.just(testSample.toList())
-            .delay(3000, TimeUnit.MILLISECONDS)
+            .delay(1000, TimeUnit.MILLISECONDS)
             .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .composeDomain()
+    }
+
+    override fun addProject(projectEntity: ProjectEntity): Completable {
+        testSample.add(0, projectEntity)
+        return Completable.complete()
             .observeOn(AndroidSchedulers.mainThread())
             .composeDomain()
     }
