@@ -1,5 +1,6 @@
 package com.mashup.torchlight.ui.project.model
 
+import com.mashup.torchlight.entity.ProjectEntity
 import com.mashup.torchlight.ui.customview.itemselectorview.ItemSelectorData
 
 data class ProjectModel(
@@ -21,7 +22,7 @@ data class ProjectModel(
     val phone: String = ""
 ) {
     enum class Passion {
-        ONE, TWO, THREE
+        ONE, TWO, THREE;
     }
 
     enum class PlatformType {
@@ -109,5 +110,91 @@ data class ProjectModel(
     }
 }
 
+fun List<ProjectEntity>.mapToPresentation(): List<ProjectModel> =
+    map { it.mapToPresentation() }
+
+fun ProjectEntity.mapToPresentation(): ProjectModel = let {
+    ProjectModel(
+        passion = it.passion.mapToPresentation(),
+        platform = it.platform?.mapToPresentation(),
+        desktop = it.desktop?.mapToPresentation(),
+        field = it.field?.mapToPresentation(),
+        categories = it.categories.mapIndexed { index, category ->
+            ItemSelectorData(index, category, null)
+        },
+        scale = it.scale.mapToPresentation(),
+        startDate = it.startDate,
+        planer = it.planer.mapToPresentation(),
+        client = it.client.mapToPresentation(),
+        server = it.server.mapToPresentation(),
+        designer = it.designer.mapToPresentation(),
+        area = it.area,
+        title = it.title,
+        summary = it.summary,
+        description = it.description,
+        phone = it.phone
+    )
+}
+
+fun ProjectEntity.Passion.mapToPresentation() = run {
+    when (this) {
+        ProjectEntity.Passion.ONE -> ProjectModel.Passion.ONE
+        ProjectEntity.Passion.TWO -> ProjectModel.Passion.TWO
+        ProjectEntity.Passion.THREE -> ProjectModel.Passion.THREE
+    }
+}
+
+fun ProjectEntity.PlatformType.mapToPresentation() = run {
+    when (this) {
+        ProjectEntity.PlatformType.ANDROID -> ProjectModel.PlatformType.ANDROID
+        ProjectEntity.PlatformType.IOS -> ProjectModel.PlatformType.IOS
+        ProjectEntity.PlatformType.WEB -> ProjectModel.PlatformType.WEB
+    }
+}
+
+fun ProjectEntity.DesktopType.mapToPresentation() = run {
+    when (this) {
+        ProjectEntity.DesktopType.MACOS -> ProjectModel.DesktopType.MACOS
+        ProjectEntity.DesktopType.WINDOWS -> ProjectModel.DesktopType.WINDOWS
+        ProjectEntity.DesktopType.LiNUX -> ProjectModel.DesktopType.LiNUX
+    }
+}
+
+fun ProjectEntity.FieldType.mapToPresentation() = run {
+    when (this) {
+        ProjectEntity.FieldType.GAME -> ProjectModel.FieldType.GAME
+        ProjectEntity.FieldType.BLOCKCHAIN -> ProjectModel.FieldType.BLOCKCHAIN
+        ProjectEntity.FieldType.AI -> ProjectModel.FieldType.AI
+    }
+}
+
+fun ProjectEntity.ProjectScale.mapToPresentation() = run {
+    when (this) {
+        ProjectEntity.ProjectScale.SMALL -> ProjectModel.ProjectScale.SMALL
+        ProjectEntity.ProjectScale.MEDIUM -> ProjectModel.ProjectScale.MEDIUM
+        ProjectEntity.ProjectScale.BIG -> ProjectModel.ProjectScale.BIG
+    }
+}
+
+fun ProjectEntity.MemberEntity.mapToPresentation() = let {
+    when (it) {
+        is ProjectEntity.MemberEntity.PLANNER -> ProjectModel.Member.PLANNER(
+            it.joinedMember,
+            it.requiredMember
+        )
+        is ProjectEntity.MemberEntity.CLIENT -> ProjectModel.Member.CLIENT(
+            it.joinedMember,
+            it.requiredMember
+        )
+        is ProjectEntity.MemberEntity.SERVER -> ProjectModel.Member.SERVER(
+            it.joinedMember,
+            it.requiredMember
+        )
+        is ProjectEntity.MemberEntity.DESIGNER -> ProjectModel.Member.DESIGNER(
+            it.joinedMember,
+            it.requiredMember
+        )
+    }
+}
 
 

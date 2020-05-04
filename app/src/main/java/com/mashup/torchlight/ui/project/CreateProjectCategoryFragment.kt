@@ -2,6 +2,7 @@ package com.mashup.torchlight.ui.project
 
 import android.os.Bundle
 import com.mashup.torchlight.R
+import com.mashup.torchlight.data.Category
 import com.mashup.torchlight.databinding.FragmentCreateProjectCategoryBinding
 import com.mashup.torchlight.ext.toast
 import com.mashup.torchlight.ui.customview.itemselectorview.ItemSelectorData
@@ -16,32 +17,11 @@ class CreateProjectCategoryFragment :
         fun newInstance() = CreateProjectCategoryFragment()
     }
 
-    private val items = listOf(
-        ItemSelectorData(0, "건강 및 피트니스", null),
-        ItemSelectorData(1, "교육", null),
-        ItemSelectorData(2, "금융", null),
-        ItemSelectorData(3, "날씨", null),
-        ItemSelectorData(4, "네비게이션", null),
-        ItemSelectorData(5, "뉴스", null),
-        ItemSelectorData(6, "도서", null),
-        ItemSelectorData(7, "라이프스타일", null),
-        ItemSelectorData(8, "비즈니스", null),
-        ItemSelectorData(9, "사진 및 비디오", null),
-        ItemSelectorData(10, "생산성", null),
-        ItemSelectorData(11, "소셜 네트워킹", null),
-        ItemSelectorData(12, "쇼핑", null),
-        ItemSelectorData(13, "스포츠", null),
-        ItemSelectorData(14, "어린이", null),
-        ItemSelectorData(15, "엔터테이먼트", null),
-        ItemSelectorData(16, "여행", null),
-        ItemSelectorData(17, "유틸리티", null),
-        ItemSelectorData(18, "음식 및 음료", null),
-        ItemSelectorData(19, "음악", null),
-        ItemSelectorData(20, "의학", null),
-        ItemSelectorData(21, "잡지 및 신문", null),
-        ItemSelectorData(22, "참고", null),
-        ItemSelectorData(23, "AR", null)
-    )
+    private val items: List<ItemSelectorData> =
+        Category.getItems().mapIndexed { index, category ->
+            ItemSelectorData(index, category, null)
+        }
+
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)

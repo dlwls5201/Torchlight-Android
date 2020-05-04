@@ -1,7 +1,7 @@
 package com.mashup.torchlight
 
 import android.app.Application
-import com.mashup.torchlight.di.viewModelModule
+import com.mashup.torchlight.di.*
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.logger.AndroidLogger
 import org.koin.core.context.startKoin
@@ -37,6 +37,11 @@ class TorchlightApplication : Application() {
 
             modules(
                 listOf(
+                    appModule,
+                    networkModule,
+                    //repositoryModule,
+                    mockRepositoryModule,
+                    usecaseModule,
                     viewModelModule
                 )
             )

@@ -5,6 +5,7 @@ import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.os.Build
 import android.text.Html
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.DrawableRes
@@ -12,6 +13,15 @@ import androidx.annotation.StringRes
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+
+@BindingAdapter("android:visibility")
+fun View.setVisibility(isLoading: Boolean?) {
+    if (isLoading != null && isLoading) {
+        visibility = View.VISIBLE
+    } else {
+        visibility = View.GONE
+    }
+}
 
 @BindingAdapter("setImageUrl")
 fun ImageView.setImageUrl(url: String?) {
