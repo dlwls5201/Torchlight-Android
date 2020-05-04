@@ -23,7 +23,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
     private val homeViewModel: HomeViewModel by viewModel()
 
-    private val testAdapter by lazy {
+    private val projectAdapter by lazy {
         object : SimpleRecyclerViewAdapter<ProjectModel, ItemProjectBinding>(
             layoutRes = R.layout.item_project,
             bindingVariableId = BR.model
@@ -58,7 +58,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         })
 
         homeViewModel.projects.observe(viewLifecycleOwner, Observer {
-            testAdapter.replaceAll(it)
+            projectAdapter.replaceAll(it)
         })
     }
 
@@ -70,7 +70,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
     private fun setUpRecycleView() {
         with(binding.rvHomeProject) {
-            adapter = testAdapter
+            adapter = projectAdapter
         }
     }
 

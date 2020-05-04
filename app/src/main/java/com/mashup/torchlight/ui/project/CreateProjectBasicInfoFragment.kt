@@ -15,7 +15,10 @@ class CreateProjectBasicInfoFragment :
     }
 
     override fun initData() {
-
+        etCreateProjectBasicInfoTitle.setText(projectVM.resultProjectModel.title)
+        etCreateProjectBasicInfoSummary.setText(projectVM.resultProjectModel.summary)
+        etCreateProjectBasicInfoDescription.setText(projectVM.resultProjectModel.description)
+        etCreateProjectBasicInfoPhone.setText(projectVM.resultProjectModel.phone)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
