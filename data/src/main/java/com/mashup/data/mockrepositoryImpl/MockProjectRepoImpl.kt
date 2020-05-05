@@ -89,6 +89,7 @@ class MockProjectRepoImpl : ProjectRepository {
     override fun addProject(projectEntity: ProjectEntity): Completable {
         testSample.add(0, projectEntity)
         return Completable.complete()
+            .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .composeDomain()
     }
