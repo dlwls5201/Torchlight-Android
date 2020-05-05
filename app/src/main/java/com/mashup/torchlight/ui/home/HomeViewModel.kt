@@ -2,9 +2,9 @@ package com.mashup.torchlight.ui.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.mashup.torchlight.base.BaseViewModel
-import com.mashup.torchlight.ext.SingleLiveEvent
-import com.mashup.torchlight.repository.ProjectRepository
+import com.mashup.base.baseview.BaseViewModel
+import com.mashup.base.ext.SingleLiveEvent
+import com.mashup.domain.repository.ProjectRepository
 import com.mashup.torchlight.ui.project.model.ProjectModel
 import com.mashup.torchlight.ui.project.model.mapToPresentation
 

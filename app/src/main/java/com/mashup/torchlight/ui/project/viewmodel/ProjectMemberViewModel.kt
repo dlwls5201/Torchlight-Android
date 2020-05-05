@@ -2,7 +2,7 @@ package com.mashup.torchlight.ui.project.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.mashup.torchlight.base.BaseViewModel
+import com.mashup.base.baseview.BaseViewModel
 import com.mashup.torchlight.ui.project.model.ProjectModel
 
 class ProjectMemberViewModel : BaseViewModel() {

@@ -1,9 +1,9 @@
 package com.mashup.torchlight.ui.project
 
 import android.os.Bundle
+import com.mashup.base.ext.toast
 import com.mashup.torchlight.R
 import com.mashup.torchlight.databinding.FragmentCreateProjectMemberAndPlaceBinding
-import com.mashup.torchlight.ext.toast
 import com.mashup.torchlight.ui.project.bottomsheet.RequiredMemberBottomSheetDialog
 import com.mashup.torchlight.ui.project.model.ProjectModel
 import com.mashup.torchlight.ui.project.viewmodel.ProjectMemberViewModel

@@ -1,6 +1,6 @@
 package com.mashup.torchlight.ui.project.model
 
-import com.mashup.torchlight.entity.ProjectEntity
+import com.mashup.domain.entity.ProjectEntity
 import com.mashup.torchlight.ui.customview.itemselectorview.ItemSelectorData
 
 data class ProjectModel(

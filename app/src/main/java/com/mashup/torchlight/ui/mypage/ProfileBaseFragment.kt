@@ -3,8 +3,8 @@ package com.mashup.torchlight.ui.mypage
 import android.os.Bundle
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModelProviders
+import com.mashup.base.baseview.BaseFragment
 import com.mashup.torchlight.BR
-import com.mashup.torchlight.base.BaseFragment
 import com.mashup.torchlight.viewmodel.ProfileViewModel
 
 open class ProfileBaseFragment<B : ViewDataBinding>(

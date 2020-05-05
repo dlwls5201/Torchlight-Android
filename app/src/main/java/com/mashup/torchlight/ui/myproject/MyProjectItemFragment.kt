@@ -3,12 +3,12 @@ package com.mashup.torchlight.ui.myproject
 import android.os.Bundle
 import android.view.ViewGroup
 import androidx.databinding.library.baseAdapters.BR
+import com.mashup.base.baseview.BaseFragment
+import com.mashup.base.simplerecyclerview.SimpleRecyclerViewAdapter
+import com.mashup.base.simplerecyclerview.SimpleViewHolder
 import com.mashup.torchlight.R
-import com.mashup.torchlight.base.BaseFragment
 import com.mashup.torchlight.databinding.FragmentMyProjectItemBinding
 import com.mashup.torchlight.databinding.ItemProjectBinding
-import com.mashup.torchlight.simplerecyclerview.SimpleRecyclerViewAdapter
-import com.mashup.torchlight.simplerecyclerview.SimpleViewHolder
 import com.mashup.torchlight.ui.customview.itemselectorview.ItemSelectorData
 import com.mashup.torchlight.ui.project.model.ProjectModel
 

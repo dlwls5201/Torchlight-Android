@@ -1,7 +1,11 @@
 package com.mashup.torchlight
 
 import android.app.Application
-import com.mashup.torchlight.di.*
+import com.mashup.data.di.mockRepositoryModule
+import com.mashup.data.di.networkModule
+import com.mashup.domain.di.usecaseModule
+import com.mashup.torchlight.di.appModule
+import com.mashup.torchlight.di.viewModelModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.logger.AndroidLogger
 import org.koin.core.context.startKoin

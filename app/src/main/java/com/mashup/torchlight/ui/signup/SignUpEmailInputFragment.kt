@@ -4,10 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
+import com.mashup.base.ext.toast
 import com.mashup.torchlight.R
 import com.mashup.torchlight.databinding.FragmentSignUpEmailInputBinding
-import com.mashup.torchlight.ext.toast
 import kotlinx.android.synthetic.main.fragment_sign_up_email_input.*
 
 class SignUpEmailInputFragment

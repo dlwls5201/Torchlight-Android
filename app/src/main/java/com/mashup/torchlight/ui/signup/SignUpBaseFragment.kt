@@ -3,8 +3,8 @@ package com.mashup.torchlight.ui.signup
 import android.os.Bundle
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModelProviders
+import com.mashup.base.baseview.BaseFragment
 import com.mashup.torchlight.BR
-import com.mashup.torchlight.base.BaseFragment
 import com.mashup.torchlight.viewmodel.SignUpViewModel
 
 open class SignUpBaseFragment<B : ViewDataBinding>(

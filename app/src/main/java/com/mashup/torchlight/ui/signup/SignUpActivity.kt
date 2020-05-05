@@ -2,10 +2,10 @@ package com.mashup.torchlight.ui.signup
 
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProviders
+import com.mashup.base.baseview.BaseActivity
 import com.mashup.torchlight.R
 import com.mashup.torchlight.adapter.SignUpFragmentAdapter
 import com.mashup.torchlight.adapter.SignUpFragmentAdapter.Companion.PagePos.EMAIL_AUTH
-import com.mashup.torchlight.base.BaseActivity
 import com.mashup.torchlight.databinding.ActivitySignUpBinding
 import com.mashup.torchlight.viewmodel.SignUpViewModel
 import kotlinx.android.synthetic.main.activity_sign_up.*

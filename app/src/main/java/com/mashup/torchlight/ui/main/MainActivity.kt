@@ -5,12 +5,12 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.mashup.base.baseview.BaseActivity
+import com.mashup.base.util.DLog
 import com.mashup.torchlight.R
-import com.mashup.torchlight.base.BaseActivity
 import com.mashup.torchlight.databinding.ActivityMainBinding
 import com.mashup.torchlight.ui.dialog.TorchlightDialog
 import com.mashup.torchlight.ui.project.CreateProjectActivity
-import com.mashup.torchlight.util.DLog
 
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main),
     BottomNavigationView.OnNavigationItemSelectedListener {

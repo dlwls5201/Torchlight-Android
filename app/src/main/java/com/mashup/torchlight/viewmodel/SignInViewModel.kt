@@ -2,7 +2,7 @@ package com.mashup.torchlight.viewmodel
 
 import android.util.Patterns
 import androidx.lifecycle.MutableLiveData
-import com.mashup.torchlight.base.BaseViewModel
+import com.mashup.base.baseview.BaseViewModel
 import com.mashup.torchlight.model.SignInModel
 
 class SignInViewModel : BaseViewModel() {

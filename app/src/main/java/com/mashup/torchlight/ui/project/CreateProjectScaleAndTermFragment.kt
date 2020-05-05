@@ -1,9 +1,9 @@
 package com.mashup.torchlight.ui.project
 
 import android.os.Bundle
+import com.mashup.base.ext.toast
 import com.mashup.torchlight.R
 import com.mashup.torchlight.databinding.FragmentCreateProjectScaleAndTermBinding
-import com.mashup.torchlight.ext.toast
 import com.mashup.torchlight.ui.customview.CustomThreeBtn
 import com.mashup.torchlight.ui.project.model.ProjectModel
 import kotlinx.android.synthetic.main.fragment_create_project_passion.btnSelectThree

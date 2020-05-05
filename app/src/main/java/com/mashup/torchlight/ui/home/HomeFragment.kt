@@ -4,13 +4,13 @@ import android.os.Bundle
 import android.view.ViewGroup
 import androidx.databinding.library.baseAdapters.BR
 import androidx.lifecycle.Observer
+import com.mashup.base.baseview.BaseFragment
+import com.mashup.base.ext.toast
+import com.mashup.base.simplerecyclerview.SimpleRecyclerViewAdapter
+import com.mashup.base.simplerecyclerview.SimpleViewHolder
 import com.mashup.torchlight.R
-import com.mashup.torchlight.base.BaseFragment
 import com.mashup.torchlight.databinding.FragmentHomeBinding
 import com.mashup.torchlight.databinding.ItemProjectBinding
-import com.mashup.torchlight.ext.toast
-import com.mashup.torchlight.simplerecyclerview.SimpleRecyclerViewAdapter
-import com.mashup.torchlight.simplerecyclerview.SimpleViewHolder
 import com.mashup.torchlight.ui.project.model.ProjectModel
 import kotlinx.android.synthetic.main.fragment_home.*
 import org.koin.androidx.viewmodel.ext.android.viewModel

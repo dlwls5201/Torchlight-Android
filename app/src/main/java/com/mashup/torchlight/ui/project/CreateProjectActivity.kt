@@ -2,8 +2,8 @@ package com.mashup.torchlight.ui.project
 
 import android.os.Bundle
 import androidx.lifecycle.observe
+import com.mashup.base.baseview.BaseActivity
 import com.mashup.torchlight.R
-import com.mashup.torchlight.base.BaseActivity
 import com.mashup.torchlight.databinding.ActivityCreateProjectBinding
 import com.mashup.torchlight.ui.project.viewmodel.ProjectViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel

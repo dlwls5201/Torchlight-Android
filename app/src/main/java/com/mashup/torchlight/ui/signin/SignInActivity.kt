@@ -3,11 +3,11 @@ package com.mashup.torchlight.ui.signin
 import android.content.Intent
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProviders
+import com.mashup.base.baseview.BaseActivity
+import com.mashup.base.ext.toast
 import com.mashup.torchlight.BR
 import com.mashup.torchlight.R
-import com.mashup.torchlight.base.BaseActivity
 import com.mashup.torchlight.databinding.ActivitySignInBinding
-import com.mashup.torchlight.ext.toast
 import com.mashup.torchlight.ui.signup.SignUpActivity
 import com.mashup.torchlight.viewmodel.SignInViewModel
 import kotlinx.android.synthetic.main.activity_sign_in.*

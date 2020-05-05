@@ -1,9 +1,9 @@
 package com.mashup.torchlight.ui.project
 
 import android.os.Bundle
+import com.mashup.base.ext.toast
 import com.mashup.torchlight.R
 import com.mashup.torchlight.databinding.FragmentCreateProjectBasicInfoBinding
-import com.mashup.torchlight.ext.toast
 import kotlinx.android.synthetic.main.fragment_create_project_basic_info.*
 
 class CreateProjectBasicInfoFragment :

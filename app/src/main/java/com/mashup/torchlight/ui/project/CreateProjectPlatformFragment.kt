@@ -2,12 +2,12 @@ package com.mashup.torchlight.ui.project
 
 import android.os.Bundle
 import androidx.core.content.ContextCompat
+import com.mashup.base.ext.toast
+import com.mashup.base.util.DLog
 import com.mashup.torchlight.R
 import com.mashup.torchlight.databinding.FragmentCreateProjectPlatformBinding
-import com.mashup.torchlight.ext.toast
 import com.mashup.torchlight.ui.customview.itemselectorview.ItemSelectorData
 import com.mashup.torchlight.ui.project.model.ProjectModel
-import com.mashup.torchlight.util.DLog
 import kotlinx.android.synthetic.main.fragment_create_project_platform.*
 
 class CreateProjectPlatformFragment :

@@ -1,12 +1,12 @@
 package com.mashup.torchlight.ui.project
 
 import android.os.Bundle
+import com.mashup.base.ext.toast
+import com.mashup.base.util.DLog
+import com.mashup.domain.data.Category
 import com.mashup.torchlight.R
-import com.mashup.torchlight.data.Category
 import com.mashup.torchlight.databinding.FragmentCreateProjectCategoryBinding
-import com.mashup.torchlight.ext.toast
 import com.mashup.torchlight.ui.customview.itemselectorview.ItemSelectorData
-import com.mashup.torchlight.util.DLog
 import kotlinx.android.synthetic.main.fragment_create_project_category.*
 
 class CreateProjectCategoryFragment :
