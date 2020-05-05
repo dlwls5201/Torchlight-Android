@@ -52,7 +52,8 @@
                     android:background="#9988ff" />
 
                 <include
-                    layout="@layout/view_proejct_info"
+                    android:id="@+id/view_create_project_confirm_info"
+                    layout="@layout/view_project_info"
                     bind:model="@{model}" />
             </LinearLayout>
         </ScrollView>

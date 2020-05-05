@@ -1,9 +1,11 @@
 package com.mashup.torchlight.ui.project.model
 
+import com.mashup.data.mockrepositoryImpl.MockProjectRepoImpl
 import com.mashup.domain.entity.ProjectEntity
 import com.mashup.torchlight.ui.customview.itemselectorview.ItemSelectorData
 
 data class ProjectModel(
+    val id: Int = -1,
     val passion: Passion = Passion.ONE,
     val platform: PlatformType? = null,
     val desktop: DesktopType? = null,
@@ -115,6 +117,7 @@ fun List<ProjectEntity>.mapToPresentation(): List<ProjectModel> =
 
 fun ProjectEntity.mapToPresentation(): ProjectModel = let {
     ProjectModel(
+        id = it.id,
         passion = it.passion.mapToPresentation(),
         platform = it.platform?.mapToPresentation(),
         desktop = it.desktop?.mapToPresentation(),
@@ -199,71 +202,57 @@ fun ProjectEntity.MemberEntity.mapToPresentation() = let {
 
 fun ProjectModel.mapToEntity() = let {
     ProjectEntity(
+        id = MockProjectRepoImpl.testSample.size,
         passion = when (it.passion) {
             ProjectModel.Passion.ONE -> ProjectEntity.Passion.ONE
             ProjectModel.Passion.TWO -> ProjectEntity.Passion.TWO
             ProjectModel.Passion.THREE -> ProjectEntity.Passion.THREE
-        }
-        ,
+        },
         platform = when (it.platform) {
             ProjectModel.PlatformType.ANDROID -> ProjectEntity.PlatformType.ANDROID
             ProjectModel.PlatformType.IOS -> ProjectEntity.PlatformType.IOS
             ProjectModel.PlatformType.WEB -> ProjectEntity.PlatformType.WEB
             else -> null
-        }
-        ,
+        },
         desktop = when (it.desktop) {
             ProjectModel.DesktopType.MACOS -> ProjectEntity.DesktopType.MACOS
             ProjectModel.DesktopType.WINDOWS -> ProjectEntity.DesktopType.WINDOWS
             ProjectModel.DesktopType.LiNUX -> ProjectEntity.DesktopType.LiNUX
             else -> null
-        }
-        ,
+        },
         field = when (it.field) {
             ProjectModel.FieldType.GAME -> ProjectEntity.FieldType.GAME
             ProjectModel.FieldType.BLOCKCHAIN -> ProjectEntity.FieldType.BLOCKCHAIN
             ProjectModel.FieldType.AI -> ProjectEntity.FieldType.AI
             else -> null
-        }
-        ,
-        categories = it.categories.map { it.name }
-        ,
+        },
+        categories = it.categories.map { it.name },
         scale = when (it.scale) {
             ProjectModel.ProjectScale.SMALL -> ProjectEntity.ProjectScale.SMALL
             ProjectModel.ProjectScale.MEDIUM -> ProjectEntity.ProjectScale.MEDIUM
             ProjectModel.ProjectScale.BIG -> ProjectEntity.ProjectScale.BIG
-        }
-        ,
-        startDate = it.startDate
-        ,
+        },
+        startDate = it.startDate,
         planer = ProjectEntity.MemberEntity.PLANNER(
             it.planer.joinedMember,
             it.planer.requiredMember
-        )
-        ,
+        ),
         client = ProjectEntity.MemberEntity.CLIENT(
             it.client.joinedMember,
             it.client.requiredMember
-        )
-        ,
+        ),
         server = ProjectEntity.MemberEntity.SERVER(
             it.server.joinedMember,
             it.server.requiredMember
-        )
-        ,
+        ),
         designer = ProjectEntity.MemberEntity.DESIGNER(
             it.designer.joinedMember,
             it.designer.requiredMember
-        )
-        ,
-        area = it.area
-        ,
-        title = it.title
-        ,
-        summary = it.summary
-        ,
-        description = it.description
-        ,
+        ),
+        area = it.area,
+        title = it.title,
+        summary = it.summary,
+        description = it.description,
         phone = it.phone
     )
 }

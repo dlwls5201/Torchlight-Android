@@ -30,7 +30,7 @@
                     android:background="#9988ff" />
 
                 <include
-                    layout="@layout/view_proejct_info"
+                    layout="@layout/view_project_info"
                     bind:model="@{model}" />
             </LinearLayout>
         </ScrollView>

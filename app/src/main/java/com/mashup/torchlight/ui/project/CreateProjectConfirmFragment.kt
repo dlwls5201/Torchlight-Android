@@ -25,7 +25,7 @@ class CreateProjectConfirmFragment :
         binding.model = projectVM.resultProjectModel
 
         val selectedCategorises = projectVM.resultProjectModel.categories
-        binding.listSelectedCategory.setItemList(selectedCategorises)
+        binding.viewCreateProjectConfirmInfo.listSelectedCategory.setItemList(selectedCategorises)
     }
 
     private fun initObserve() {

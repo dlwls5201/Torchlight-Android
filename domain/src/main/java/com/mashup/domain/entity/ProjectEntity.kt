@@ -1,6 +1,7 @@
 package com.mashup.domain.entity
 
 data class ProjectEntity(
+    val id: Int = -1,
     val passion: Passion = Passion.ONE,
     val platform: PlatformType? = null,
     val desktop: DesktopType? = null,

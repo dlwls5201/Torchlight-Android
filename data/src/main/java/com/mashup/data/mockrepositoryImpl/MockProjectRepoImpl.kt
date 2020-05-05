@@ -15,6 +15,7 @@ class MockProjectRepoImpl : ProjectRepository {
     companion object {
         val testSample = mutableListOf(
             ProjectEntity(
+                id = 0,
                 passion = ProjectEntity.Passion.ONE,
                 platform = ProjectEntity.PlatformType.ANDROID,
                 desktop = ProjectEntity.DesktopType.MACOS,
@@ -36,6 +37,7 @@ class MockProjectRepoImpl : ProjectRepository {
                 phone = "01077255201"
             ),
             ProjectEntity(
+                id = 1,
                 passion = ProjectEntity.Passion.TWO,
                 platform = ProjectEntity.PlatformType.IOS,
                 desktop = ProjectEntity.DesktopType.LiNUX,
@@ -55,6 +57,7 @@ class MockProjectRepoImpl : ProjectRepository {
                 phone = "01077255201"
             ),
             ProjectEntity(
+                id = 2,
                 passion = ProjectEntity.Passion.THREE,
                 platform = ProjectEntity.PlatformType.WEB,
                 desktop = ProjectEntity.DesktopType.MACOS,
