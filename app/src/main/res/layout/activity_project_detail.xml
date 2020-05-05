@@ -5,69 +5,85 @@
     <data>
 
         <variable
+            name="viewModel"
+            type="com.mashup.torchlight.ui.projectdetail.viewmodel.ProjectDetailViewModel" />
+        <variable
             name="model"
             type="com.mashup.torchlight.ui.project.model.ProjectModel" />
     </data>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <ScrollView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingBottom="32dp">
 
-            <LinearLayout
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="276dp"
+                        android:background="#9988ff" />
+
+                    <include
+                        layout="@layout/view_project_info"
+                        bind:model="@{model}" />
+                </LinearLayout>
+            </ScrollView>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:background="#313131"
+                android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="276dp"
-                    android:background="#9988ff" />
+                    android:id="@+id/btn_project_detail_question"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="8dp"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_question" />
 
-                <include
-                    layout="@layout/view_project_info"
-                    bind:model="@{model}" />
-            </LinearLayout>
-        </ScrollView>
+                <ImageView
+                    android:id="@+id/btn_project_detail_like"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@+id/btn_project_detail_question"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_unlike" />
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:background="#313131"
-            android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/btn_project_detail_apply"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:padding="16dp"
+                    android:text="지원하기"
+                    android:textColor="@color/main_400" />
+            </RelativeLayout>
+        </LinearLayout>
 
-            <ImageView
-                android:id="@+id/btn_project_detail_question"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="8dp"
-                android:padding="10dp"
-                android:src="@drawable/ic_question" />
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="@{viewModel.isLoading()}" />
+    </RelativeLayout>
 
-            <ImageView
-                android:id="@+id/btn_project_detail_like"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_centerVertical="true"
-                android:layout_toEndOf="@+id/btn_project_detail_question"
-                android:padding="10dp"
-                android:src="@drawable/ic_unlike" />
-
-            <TextView
-                android:id="@+id/btn_project_detail_apply"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:padding="16dp"
-                android:text="지원하기"
-                android:textColor="@color/main_400" />
-        </RelativeLayout>
-    </LinearLayout>
 </layout>

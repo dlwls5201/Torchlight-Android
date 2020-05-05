@@ -89,6 +89,14 @@ class MockProjectRepoImpl : ProjectRepository {
             .composeDomain()
     }
 
+    override fun getProjectById(id: Int): Single<ProjectEntity> {
+        return Single.just(testSample[id])
+            .delay(1000, TimeUnit.MILLISECONDS)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .composeDomain()
+    }
+
     override fun addProject(projectEntity: ProjectEntity): Completable {
         testSample.add(0, projectEntity)
         return Completable.complete()

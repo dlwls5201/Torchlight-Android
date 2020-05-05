@@ -1,15 +1,16 @@
-package com.mashup.torchlight.ui.home
+package com.mashup.torchlight.ui.projectdetail.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.mashup.base.baseview.BaseViewModel
 import com.mashup.base.ext.SingleLiveEvent
+import com.mashup.base.util.DLog
 import com.mashup.domain.repository.ProjectRepository
 import com.mashup.torchlight.ui.project.model.ProjectModel
 import com.mashup.torchlight.ui.project.model.mapToPresentation
 
-class HomeViewModel(
-    private val projectRepository: ProjectRepository
+class ProjectDetailViewModel(
+    private val projectRepo: ProjectRepository
 ) : BaseViewModel() {
 
     private val _toast = SingleLiveEvent<String>()
@@ -18,12 +19,11 @@ class HomeViewModel(
     private val _isLoading = MutableLiveData<Boolean>(true)
     val isLoading: LiveData<Boolean> get() = _isLoading
 
-    private val _projects = MutableLiveData<List<ProjectModel>>()
-    val projects: LiveData<List<ProjectModel>> get() = _projects
+    private val _projectItem = MutableLiveData<ProjectModel>()
+    val projectModel: LiveData<ProjectModel> get() = _projectItem
 
-    fun loadData() {
-        projectRepository.getProjects()
-            .map { it.mapToPresentation() }
+    fun getProjectById(id: Int) {
+        projectRepo.getProjectById(id)
             .doOnSubscribe {
                 _isLoading.value = true
             }
@@ -31,9 +31,10 @@ class HomeViewModel(
                 _isLoading.value = false
             }
             .subscribe({
-                _projects.value = it
+                _projectItem.value = it.mapToPresentation()
             }) {
                 _toast.value = it.message
+                DLog.e(it.message)
             }.also {
                 compositeDisposable.add(it)
             }

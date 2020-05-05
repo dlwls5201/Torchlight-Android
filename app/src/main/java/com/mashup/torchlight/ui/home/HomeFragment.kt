@@ -12,6 +12,7 @@ import com.mashup.torchlight.R
 import com.mashup.torchlight.databinding.FragmentHomeBinding
 import com.mashup.torchlight.databinding.ItemProjectBinding
 import com.mashup.torchlight.ui.project.model.ProjectModel
+import com.mashup.torchlight.ui.projectdetail.ProjectDetailActivity
 import kotlinx.android.synthetic.main.fragment_home.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -33,9 +34,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
                 viewType: Int
             ): SimpleViewHolder<ItemProjectBinding> {
                 return super.onCreateViewHolder(parent, viewType).apply {
-                    //TODO 상세 페이지 작업
                     itemView.setOnClickListener {
-                        itemView.context?.toast(getItem(adapterPosition).toString())
+                        ProjectDetailActivity.startProjectDetailActivity(
+                            requireContext(),
+                            getItem(adapterPosition).id
+                        )
                     }
                 }
             }

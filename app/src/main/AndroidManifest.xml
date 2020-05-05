@@ -28,7 +28,7 @@
         <activity android:name=".ui.mypage.CreateProfileActivity" />
 
         <activity android:name=".ui.project.CreateProjectActivity" />
-        <activity android:name=".ui.projectdetail.viewmodel.ProjectDetailActivity" />
+        <activity android:name=".ui.projectdetail.ProjectDetailActivity" />
 
         <activity android:name=".ui.preferences.PreferencesActivity" />
 

@@ -8,5 +8,7 @@ interface ProjectRepository {
 
     fun getProjects(): Single<List<ProjectEntity>>
 
+    fun getProjectById(id: Int): Single<ProjectEntity>
+
     fun addProject(projectEntity: ProjectEntity): Completable
 }
